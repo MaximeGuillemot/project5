@@ -35,15 +35,23 @@
                 <ul>
                     <a href=""><li class="nav_news"><span>Actualités</span></li></a>
                     <a href=""><li class="nav_channel"><span>La Chaîne</span></li></a>
+                    <a href=""><li class="nav_chronicles"><span>Chroniques</span></li></a>
                     <a href=""><li class="nav_guides"><span>Guides</span></li></a>
                     <a href=""><li class="nav_guild"><span>La Guilde</span></li></a>
-                    <a href=""><li class="nav_forum"><span>Forum</span></li></a>
                     <a href=""><li class="nav_events"><span>Événements</span></li></a>
                 </ul>
             </nav>
 		</header>
 
-		
+		<nav>
+            <ul>
+                <a href=""><li class="nav_account"><span>Mon Compte</span></li></a>
+                <a href=""><li class="nav_forum"><span>Forum</span></li></a>
+                <a href=""><li class="nav_discord"><span>Discord</span></li></a>
+                <a href=""><li class="nav_twitter"><span>Twitter</span></li></a>
+                <a href=""><li class="nav_facebook"><span>Facebook</span></li></a>
+            </ul>
+        </nav>
 
         <main>
 

@@ -15,9 +15,25 @@ body
     background-color: #EEE;
 }
 
+@font-face 
+{ 
+    font-family: 'Broadway';
+    src: url('../fonts/BROADW.TTF');
+}
+
 a
 {
     text-decoration: none;
+}
+
+nav a:visited
+{
+    color: #FFF;
+}
+
+nav ul
+{
+    list-style: none;
 }
 
 
@@ -38,9 +54,11 @@ header
     
     background: linear-gradient(135deg, rgb(173, 17, 17) 0%,rgb(206, 39, 39) 20%,rgb(182, 15, 15) 100%);
     border-bottom: 2px solid #FFF;
-    box-shadow: 0 3px 3px rgb(85, 81, 81);
+    box-shadow: 0 3px 3px rgb(146, 135, 135);
 
     transition: height .2s ease-in-out;
+
+    z-index: 10;
 }
 
 header:hover
@@ -63,6 +81,7 @@ header h1
     color: #FFF;
     font-size: 3rem;
     text-align: center;
+    font-family: 'Broadway';
 
     transition: padding-top .2s ease-in-out;
 }
@@ -77,8 +96,6 @@ header ul
     display: flex;
 
     margin-top: 18px;
-
-    list-style: none;
 }
 
 header li
@@ -122,35 +139,126 @@ header:hover span
 .nav_news
 {
     background: url('../images/nav/nav_news_blank.png') no-repeat 50% 2px;
-    background-size:  55px 45px;
+    background-size: 55px 45px;
 }
 
 .nav_channel
 {
     background: url('../images/nav/nav_channel_blank.png') no-repeat 50% 2px;
-    background-size:  55px 45px;
+    background-size: 60px 40px;
+}
+
+.nav_chronicles
+{
+    background: url('../images/nav/nav_chronicles_blank.png') no-repeat 50% 2px;
+    background-size: 55px 45px;
 }
 
 .nav_guides
 {
     background: url('../images/nav/nav_guides_blank.png') no-repeat 50% 2px;
-    background-size:  55px 45px;
+    background-size: 55px 45px;
 }
 
 .nav_guild
 {
     background: url('../images/nav/nav_guild_blank.png') no-repeat 50% 2px;
-    background-size:  55px 45px;
-}
-
-.nav_forum
-{
-    background: url('../images/nav/nav_forum_blank.png') no-repeat 50% 2px;
-    background-size:  55px 45px;
+    background-size: 55px 45px;
 }
 
 .nav_events
 {
     background: url('../images/nav/nav_events_blank.png') no-repeat 50% 2px;
-    background-size:  45px 45px;
+    background-size: 45px 45px;
+}
+
+
+/*-------------------------------------
+    Secondary navigation properties
+-------------------------------------*/
+
+body > nav
+{
+    width: 82px;
+    height: 100vh;
+
+    position: fixed;
+
+    padding-top: 110px;
+
+    background: linear-gradient(90deg, rgb(15, 15, 15) 0%,rgb(27, 27, 27) 40%,rgb(15, 15, 15) 100%);
+    border-right: 2px solid #FFF;
+    box-shadow: 3px 3px 3px rgb(189, 182, 182);
+
+    z-index: 5;
+}
+
+body > nav ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+body > nav li
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    width: 80px;
+    height: 65px;
+
+    position: relative;
+
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0;
+
+    font-size: 0.8rem;
+}
+
+body > nav span
+{
+    opacity: 0;
+    
+    position: relative;
+    left: -50px;
+
+    transition: opacity .2s ease-in-out, left .2s ease-in-out;
+}
+
+body > nav:hover span
+{
+    opacity: 1;
+    left: 0;
+}
+
+.nav_account
+{
+    background: url('../images/nav/nav_account_blank.png') no-repeat 50% 2px;
+    background-size: 40px 40px;
+}
+
+.nav_forum
+{
+    background: url('../images/nav/nav_forum_blank.png') no-repeat 50% 2px;
+    background-size: 45px 40px;
+}
+
+.nav_discord
+{
+    background: url('../images/nav/nav_discord_blank.png') no-repeat 50% 2px;
+    background-size: 40px 40px;
+}
+
+.nav_twitter
+{
+    background: url('../images/nav/nav_twitter_blank.png') no-repeat 50% 2px;
+    background-size: 40px 37px;
+}
+
+.nav_facebook
+{
+    background: url('../images/nav/nav_facebook_blank.png') no-repeat 50% 2px;
+    background-size: 40px 37px;
 }
