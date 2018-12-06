@@ -24,17 +24,26 @@
 
 		<link rel="icon" sizes="16x16" href="images/favicon.ico" />
 
-		<link href="styles/styles.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
 	</head>
 
 	<body>
 		<header>
-			<h1>MMOShards</h1>
+            <h1><a href="">MMOShards</a></h1>
+
+            <nav>
+                <ul>
+                    <a href=""><li class="nav_news"><span>Actualités</span></li></a>
+                    <a href=""><li class="nav_channel"><span>La Chaîne</span></li></a>
+                    <a href=""><li class="nav_guides"><span>Guides</span></li></a>
+                    <a href=""><li class="nav_guild"><span>La Guilde</span></li></a>
+                    <a href=""><li class="nav_forum"><span>Forum</span></li></a>
+                    <a href=""><li class="nav_events"><span>Événements</span></li></a>
+                </ul>
+            </nav>
 		</header>
 
-		<nav>
-
-        </nav>
+		
 
         <main>
 
