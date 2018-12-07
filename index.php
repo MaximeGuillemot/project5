@@ -41,9 +41,9 @@
                     <a href=""><li class="nav_events"><span>Événements</span></li></a>
                 </ul>
             </nav>
-		</header>
+        </header>
 
-		<nav>
+        <nav>
             <ul>
                 <a href=""><li class="nav_account"><span>Mon Compte</span></li></a>
                 <a href=""><li class="nav_forum"><span>Forum</span></li></a>
@@ -52,10 +52,110 @@
                 <a href=""><li class="nav_facebook"><span>Facebook</span></li></a>
             </ul>
         </nav>
+        
+        <div id="main_wrapper">
+            <main>
+                <section class="home_section">
+                    <h2>Actualités</h2>
 
-        <main>
+                    <div id="home_news_wrapper" class="home_miniatures">
+                        <article style="background: url('images/news/2018-12-07-03.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Art Show</h3>
+                        </article>
 
-        </main>
+                        <article style="background: url('images/news/2018-12-07-02.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Courses de Scaraboules</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Episode 4 - Saison 4</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Grand concours !</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Grand concours !</h3>
+                        </article>
+                    </div>
+
+                    <div id="home_news_next" class="home_next">
+                        <p>&#187;</p>
+                    </div>
+                </section>
+
+                <section class="home_section">
+                    <h2>Vidéos</h2>
+
+                    <div id="home_video_wrapper" class="home_miniatures">
+                        <article style="background: url('images/news/2018-12-07-04.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Let's Play - HoT E11</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-05.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Tout sur les Scaraboules</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-06.png') no-repeat left; background-size: 200px 130px;">
+                            <h3>Guide - Déplacements</h3>
+                        </article>
+                    </div>
+
+                    <div id="home_video_next" class="home_next">
+                        <p>&#187;</p>
+                    </div>
+                </section>
+
+                <section class="home_section">
+                    <h2>Chroniques</h2>
+
+                    <div id="home_chronicles_wrapper" class="home_miniatures">
+                        <article style="background: url('images/news/2018-12-07-07.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Guild Wars 2 : Pay2Win ?</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-08.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>GW2 et ses concurrents</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-09.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Popularité sans abonnement</h3>
+                        </article>
+                    </div>
+
+                    <div id="home_chronicles_next" class="home_next">
+                        <p>&#187;</p>
+                    </div>
+                </section>
+                
+                <section class="home_section">
+                    <h2>Guides</h2>
+
+                    <div id="home_guides_wrapper" class="home_miniatures">
+                        <article style="background: url('images/news/2018-12-07-10.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Puzzle - Baie des braises</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-11.jpg') no-repeat left; background-size: 200px 130px;">
+                            <h3>Nécromant - Le Faucheur</h3>
+                        </article>
+
+                        <article style="background: url('images/news/2018-12-07-12.png') no-repeat left; background-size: 200px 130px;">
+                            <h3>Se faire de l'argent</h3>
+                        </article>
+                    </div>
+
+                    <div id="home_guides_next" class="home_next">
+                        <p>&#187;</p>
+                    </div>
+                </section>
+            </main>
+
+            <aside>
+                <p style="color:#FFF">PLACEHOLDER</p>
+            </aside>
+        </div>
 		
 		<footer>
             <p><small>©2018 Tous droits réservés @MMOShards.</small></p>
