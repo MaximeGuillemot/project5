@@ -59,23 +59,19 @@
                     <h2>Actualités</h2>
 
                     <div id="home_news_wrapper" class="home_miniatures">
-                        <article style="background: url('images/news/2018-12-07-03.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-03.jpg') no-repeat left; background-size: cover;">
                             <h3>Art Show</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-02.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-02.jpg') no-repeat left; background-size: cover;">
                             <h3>Courses de Scaraboules</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: cover;">
                             <h3>Episode 4 - Saison 4</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
-                            <h3>Grand concours !</h3>
-                        </article>
-
-                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-01.jpg') no-repeat left; background-size: cover;">
                             <h3>Grand concours !</h3>
                         </article>
                     </div>
@@ -89,15 +85,15 @@
                     <h2>Vidéos</h2>
 
                     <div id="home_video_wrapper" class="home_miniatures">
-                        <article style="background: url('images/news/2018-12-07-04.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-04.jpg') no-repeat left; background-size: cover;">
                             <h3>Let's Play - HoT E11</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-05.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-05.jpg') no-repeat left; background-size: cover;">
                             <h3>Tout sur les Scaraboules</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-06.png') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-06.png') no-repeat left; background-size: cover;">
                             <h3>Guide - Déplacements</h3>
                         </article>
                     </div>
@@ -111,15 +107,15 @@
                     <h2>Chroniques</h2>
 
                     <div id="home_chronicles_wrapper" class="home_miniatures">
-                        <article style="background: url('images/news/2018-12-07-07.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-07.jpg') no-repeat left; background-size: cover;">
                             <h3>Guild Wars 2 : Pay2Win ?</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-08.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-08.jpg') no-repeat left; background-size: cover;">
                             <h3>GW2 et ses concurrents</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-09.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-09.jpg') no-repeat left; background-size: cover;">
                             <h3>Popularité sans abonnement</h3>
                         </article>
                     </div>
@@ -133,15 +129,15 @@
                     <h2>Guides</h2>
 
                     <div id="home_guides_wrapper" class="home_miniatures">
-                        <article style="background: url('images/news/2018-12-07-10.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-10.jpg') no-repeat left; background-size: cover;">
                             <h3>Puzzle - Baie des braises</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-11.jpg') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-11.jpg') no-repeat left; background-size: cover;">
                             <h3>Nécromant - Le Faucheur</h3>
                         </article>
 
-                        <article style="background: url('images/news/2018-12-07-12.png') no-repeat left; background-size: 200px 130px;">
+                        <article style="background: url('images/news/2018-12-07-12.png') no-repeat left; background-size: cover;">
                             <h3>Se faire de l'argent</h3>
                         </article>
                     </div>
@@ -162,3 +158,4 @@
 		</footer>
 	</body>
 </html>
+

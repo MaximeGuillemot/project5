@@ -323,7 +323,7 @@ body > footer
 
 main
 {
-    width: 890px;
+    width: 1340px;
     height: 6000px;
 
     margin-top: 120px;
@@ -345,14 +345,13 @@ main
     background-color: #FFF;
     border-radius: 10px;
     box-shadow: -2px 4px 4px rgb(189, 182, 182);
-
 }
 
 .home_miniatures
 {
     display: flex;
 
-    width: 80%;
+    width: 100%;
     height: 150px;
 
     margin: 0;
@@ -367,7 +366,7 @@ main
 
 .home_section h2
 {
-    width: 90px;
+    min-width: 90px;
     height: 90px;
 
     margin-top: 30px;
@@ -398,7 +397,7 @@ main
 
 .home_section article h3
 {
-    width: 185px;
+    width: calc(100% - 15px);
     height: 22px;
     
     margin: 0;
@@ -427,9 +426,264 @@ main
     text-align: center;
     line-height: 80px;
 
+    position: relative;
+    right: 0;
+
     background-color: #222;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 
     cursor: pointer;
+}
+
+
+/*-----------------------------
+    Adaptive properties
+-----------------------------*/
+
+
+@media all and (max-width: 1930px)
+{
+    main
+    {
+        width: 1100px;
+    }
+}
+
+@media all and (max-width: 1630px)
+{
+    main
+    {
+        width: 880px;
+    }
+}
+
+@media all and (max-width: 1365px)
+{
+    /*main
+    {
+        width: 640px;
+    }*/
+
+    #main_wrapper aside
+    {
+        min-width: 900px;
+        height: 200px; 
+    
+        position: absolute;
+
+        margin-left: 45px;
+    }
+
+    main
+    {
+        margin-top: 350px;
+        margin-left: 80px;
+    }
+}
+
+@media all and (max-width: 1135px)
+{
+    /*main
+    {
+        width: 410px;
+    }*/
+}
+
+@media all and (max-width: 1060px)
+{
+    main
+    {
+        width: 800px;
+    }
+
+    .home_section article
+    {
+        margin-right: 8px;
+    }
+
+    .home_miniatures
+    {
+        padding-left: 87px;
+    }
+
+    #main_wrapper aside
+    {
+        min-width: 800px;
+    }
+}
+
+@media all and (max-width: 960px)
+{
+    .home_section
+    {
+        display: block;
+        padding-left: 0;
+    }
+
+    .home_miniatures
+    {
+        background: none;
+        padding-left: 47px;
+    }
+
+    .home_section article
+    {
+        margin-right: 30px;
+    }
+
+    .home_next
+    {
+        display: none;
+    }
+    main
+    {
+        width: 700px;
+    }
+
+    .home_section h2
+    {
+        width: 100%;
+        height: 30px;
+
+        margin-top: 0;
+
+        line-height: 28px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #main_wrapper aside
+    {
+        min-width: 700px;
+    }
+}
+
+@media all and (max-width: 860px)
+{
+    main
+    {
+        width: 600px;
+    }
+
+    #main_wrapper aside
+    {
+        min-width: 600px;
+    }
+
+    .home_miniatures
+    {
+        padding-left: 40px;
+    }
+
+    .home_section article
+    {
+        min-width: 180px;
+        margin-right: 15px;
+    }
+}
+
+@media all and (max-width: 760px)
+{
+    main
+    {
+        width: 500px;
+    }
+
+    #main_wrapper aside
+    {
+        min-width: 500px;
+    }
+
+    .home_miniatures
+    {
+        padding-left: 32px;
+    }
+
+    .home_section article
+    {
+        min-width: 155px;
+        margin-right: 10px;
+    }
+
+    .home_section article h3
+    {
+        height: 40px;
+    }
+}
+
+@media all and (max-width: 660px)
+{
+    .home_section
+    {
+        height: 350px;
+    }
+    main
+    {
+        width: 400px;
+    }
+
+    #main_wrapper aside
+    {
+        min-width: 400px;
+    }
+
+    .home_miniatures
+    {
+        padding-left: 38px;
+        overflow: visible;
+        flex-wrap: wrap;
+    }
+
+    .home_section article
+    {
+        min-width: 180px;
+        margin-right: 15px;
+    }
+
+    .home_section article h3
+    {
+        height: 25px;
+    }
+}
+
+@media all and (max-width: 560px)
+{
+    main
+    {
+        width: 300px;
+    }
+    
+    #main_wrapper aside
+    {
+        min-width: 300px;
+    }
+
+    .home_miniatures
+    {
+        padding-left: 32px;
+    }
+
+    .home_section article
+    {
+        min-width: 140px;
+        margin-right: 5px;
+    }
+
+    .home_section article h3
+    {
+        height: 40px;
+    }
+}
+
+@media all and (max-width: 430px)
+{
+    body > nav
+    {
+        display: none;
+    }
+
+    main, #main_wrapper aside
+    {
+        margin-left: 0;
+    }
 }
