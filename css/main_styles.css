@@ -139,40 +139,46 @@ header:hover span
     top: 0;
 }
 
-.nav_news
+#nav_news
 {
     background: url('../images/nav/nav_news_blank.png') no-repeat 50% 2px;
     background-size: 55px 45px;
 }
 
-.nav_channel
+#nav_channel
 {
     background: url('../images/nav/nav_channel_blank.png') no-repeat 50% 2px;
     background-size: 60px 40px;
 }
 
-.nav_chronicles
+#nav_chronicles
 {
     background: url('../images/nav/nav_chronicles_blank.png') no-repeat 50% 2px;
     background-size: 55px 45px;
 }
 
-.nav_guides
+#nav_guides
 {
     background: url('../images/nav/nav_guides_blank.png') no-repeat 50% 2px;
     background-size: 55px 45px;
 }
 
-.nav_guild
+#nav_guild
 {
     background: url('../images/nav/nav_guild_blank.png') no-repeat 50% 2px;
     background-size: 55px 45px;
 }
 
-.nav_events
+#nav_events
 {
     background: url('../images/nav/nav_events_blank.png') no-repeat 50% 2px;
     background-size: 45px 45px;
+}
+
+#nav_search
+{
+    background: url('../images/nav/nav_search_blank.png') no-repeat 50% 2px;
+    background-size: 47px 47px;
 }
 
 
@@ -236,31 +242,31 @@ body > nav:hover span
     left: 0;
 }
 
-.nav_account
+#nav_account
 {
     background: url('../images/nav/nav_account_blank.png') no-repeat 50% 2px;
     background-size: 40px 38px;
 }
 
-.nav_forum
+#nav_forum
 {
     background: url('../images/nav/nav_forum_blank.png') no-repeat 50% 2px;
     background-size: 45px 40px;
 }
 
-.nav_discord
+#nav_discord
 {
     background: url('../images/nav/nav_discord_blank.png') no-repeat 50% 2px;
     background-size: 40px 40px;
 }
 
-.nav_twitter
+#nav_twitter
 {
     background: url('../images/nav/nav_twitter_blank.png') no-repeat 50% 2px;
     background-size: 40px 37px;
 }
 
-.nav_facebook
+#nav_facebook
 {
     background: url('../images/nav/nav_facebook_blank.png') no-repeat 50% 2px;
     background-size: 40px 37px;
@@ -465,6 +471,20 @@ main
         width: 640px;
     }*/
 
+    header li
+    {
+        width: 85px;
+
+        margin-right: 10px;
+
+        font-size: 1rem;
+    }
+
+    header li:hover
+    {
+        width: 83px;
+    }
+
     #main_wrapper aside
     {
         min-width: 900px;
@@ -479,6 +499,99 @@ main
     {
         margin-top: 350px;
         margin-left: 80px;
+    }
+}
+
+@media all and (max-width: 1150px)
+{
+    #nav_news
+    {
+        background-size: 45px 35px;
+    }
+
+    #nav_channel
+    {
+        background-size: 50px 30px;
+    }
+
+    #nav_chronicles
+    {
+        background-size: 45px 35px;
+    }
+
+    #nav_guides
+    {
+        background-size: 45px 35px;
+    }
+
+    #nav_guild
+    {
+        background-size: 45px 35px;
+    }
+
+    #nav_events
+    {
+        background-size: 35px 35px;
+    }
+
+    #nav_search
+    {
+        background-size: 37px 37px;
+    }
+
+    header li
+    {
+        width: 80px;
+
+        margin-right: 0;
+
+        font-size: 0.9rem;
+    }
+
+    header li:hover
+    {
+        width: 78px;
+    }
+
+    header
+    {
+        display: flex;
+
+        width: 100%;
+        height: 80px;
+    }
+
+    header:hover
+    {
+        height: 80px;
+    }
+
+    header:hover h1
+    {
+        padding-top: 10px;
+    }
+
+    header h1
+    {
+        margin-right: 3%;
+    }
+
+    header ul
+    {
+        margin-top: 12px;
+    }
+
+    header li
+    {
+        height: 60px;
+    }
+
+    header span
+    {
+        opacity: 1;
+        
+        position: inherit;
+        top: 0;
     }
 }
 
@@ -510,6 +623,45 @@ main
     #main_wrapper aside
     {
         min-width: 800px;
+    }
+}
+
+@media all and (max-width: 1020px)
+{
+    /*header
+    {
+        display: flex;
+
+        width: 100%;
+        height: 80px;
+
+        position: fixed;
+        top: 0;
+        margin: 0;
+        
+        background: linear-gradient(135deg, rgb(226, 23, 23) 0%,rgb(243, 38, 38) 18%,rgb(200, 11, 11) 100%);
+        border-bottom: 2px solid #FFF;
+        box-shadow: 0 3px 3px rgb(146, 135, 135);
+
+        transition: height .2s ease-in-out;
+
+        z-index: 10;
+    }
+*/
+
+    header h1
+    {
+        margin-right: 0;
+        padding-top: 17px;
+        padding-left: 10px;
+
+        font-size: 2.5rem;
+
+    }
+
+    header:hover h1
+    {
+        padding-top: 17px;
     }
 }
 
@@ -546,7 +698,8 @@ main
         width: 100%;
         height: 30px;
 
-        margin-top: 0;
+        margin: 0;
+        margin-bottom: 5px;
 
         line-height: 28px;
         border-radius: 10px 10px 0 0;
@@ -558,11 +711,51 @@ main
     }
 }
 
+@media all and (max-width: 900px)
+{
+    header h1
+    {
+        padding-top: 20px;
+        padding-left: 10px;
+
+        font-size: 2rem;
+
+    }
+
+    header:hover h1
+    {
+        padding-top: 20px;
+    }
+}
+
 @media all and (max-width: 860px)
 {
+    header
+    {
+        flex-direction: column;
+        align-items: center;
+        height: 110px;
+        background: linear-gradient(135deg, rgb(226, 23, 23) 0%,rgb(243, 38, 38) 46%,rgb(200, 11, 11) 100%);
+    }
+
+    header h1
+    {
+        padding-top: 5px;
+    }
+
+    header ul
+    {
+        padding: 0;
+    }
+
     main
     {
         width: 600px;
+    }
+
+    body > nav
+    {
+        padding-top: 145px;
     }
 
     #main_wrapper aside
@@ -579,6 +772,68 @@ main
     {
         min-width: 180px;
         margin-right: 15px;
+    }
+
+    #nav_news
+    {
+        background-size: 35px 25px;
+    }
+
+    #nav_channel
+    {
+        background-size: 40px 20px;
+    }
+
+    #nav_chronicles
+    {
+        background-size: 35px 25px;
+    }
+
+    #nav_guides
+    {
+        background-size: 35px 25px;
+    }
+
+    #nav_guild
+    {
+        background-size: 35px 25px;
+    }
+
+    #nav_events
+    {
+        background-size: 25px 25px;
+    }
+
+    #nav_search
+    {
+        background-size: 27px 27px;
+    }
+
+    header li
+    {
+        height: 52px;;
+    }
+
+    header:hover
+    {
+        height: 110px;
+    }
+
+    header:hover h1
+    {
+        padding-top: 5px;
+    }
+
+    header li
+    {
+        width: 70px;
+
+        font-size: 0.8rem;
+    }
+
+    header li:hover
+    {
+        width: 68px;
     }
 }
 
@@ -615,7 +870,7 @@ main
 {
     .home_section
     {
-        height: 350px;
+        height: 330px;
     }
     main
     {
@@ -644,6 +899,62 @@ main
     {
         height: 25px;
     }
+}
+
+@media all and (max-width: 585px)
+{
+    .home_miniatures
+    {
+        padding-left: 40px;
+    }
+
+    .home_section article
+    {
+        min-width: 180px;
+        margin-right: 15px;
+    }
+
+    #nav_news
+    {
+        background-size: 30px 20px;
+    }
+
+    #nav_channel
+    {
+        background-size: 35px 18px;
+    }
+
+    #nav_chronicles
+    {
+        background-size: 30px 22px;
+    }
+
+    #nav_guides
+    {
+        background-size: 30px 20px;
+    }
+
+    #nav_guild
+    {
+        background-size: 30px 20px;
+    }
+
+    #nav_events
+    {
+        background-size: 22px 20px;
+    }
+
+    #nav_search
+    {
+        background-size: 22px 22px;
+    }
+
+    header li
+    {
+        height: 50px;;
+    }
+
+
 }
 
 @media all and (max-width: 560px)
@@ -675,8 +986,13 @@ main
     }
 }
 
-@media all and (max-width: 430px)
+@media all and (max-width: 520px)
 {
+    header nav
+    {
+        display: none;
+    }
+
     body > nav
     {
         display: none;
@@ -685,5 +1001,15 @@ main
     main, #main_wrapper aside
     {
         margin-left: 0;
+    }
+
+    header
+    {
+        height: 50px;
+    }
+
+    header:hover
+    {
+        height: 50px;
     }
 }
