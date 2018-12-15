@@ -181,6 +181,11 @@ header:hover span
     background-size: 47px 47px;
 }
 
+#ham_menu
+{
+    display: none;
+}
+
 
 /*-------------------------------------
     Secondary navigation properties
@@ -835,6 +840,17 @@ main
     {
         width: 68px;
     }
+
+    #main_wrapper aside
+    {
+        top: 20px;
+    }
+
+    main
+    {
+        margin-top: 370px;
+        margin-left: 80px;
+    }
 }
 
 @media all and (max-width: 760px)
@@ -1011,5 +1027,50 @@ main
     header:hover
     {
         height: 50px;
+    }
+
+    #ham_menu
+    {
+        display: block;
+
+        position: absolute;
+        top: 12px;
+        left: 4%;
+
+        color: #FFF;
+        font-size: 1.3rem;
+
+        background: none;
+        border: none;
+    }
+
+    main, #main_wrapper aside
+    {
+        width: 85%;
+    }
+
+    /*.home_section article
+    {
+        min-width: 180px;
+        margin-right: 15px;
+    }*/
+
+    .home_miniatures
+    {
+        justify-content: center;
+        padding-left: 27px;
+    }
+}
+
+@media all and (max-width: 360px)
+{
+    .home_miniatures
+    {
+        overflow: hidden;
+    }
+
+    .home_section
+    {
+        height: 200px;
     }
 }

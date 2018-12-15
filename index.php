@@ -24,7 +24,8 @@
 
 		<link rel="icon" sizes="16x16" href="images/favicon.ico" />
 
-		<link href="css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -42,6 +43,8 @@
                     <a href=""><li id="nav_search"><span>Recherche</span></li></a>
                 </ul>
             </nav>
+
+            <button id="ham_menu"><i class="fas fa-bars"></i></button>
         </header>
 
         <nav>
