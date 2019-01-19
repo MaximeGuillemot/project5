@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<title>MMOShards test</title>
+		<title>MMOShards</title>
 
 		<meta name="description" content="Actualités sur les MMORPG" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,36 +29,55 @@
 	</head>
 
 	<body>
-		<header>
+		<header id="site-header">
             <h1><a href="">MMOShards</a></h1>
 
             <nav>
                 <ul>
-                    <a href=""><li id="nav_news"><span>Actualités</span></li></a>
-                    <a href=""><li id="nav_channel"><span>La Chaîne</span></li></a>
-                    <a href=""><li id="nav_chronicles"><span>Chroniques</span></li></a>
-                    <a href=""><li id="nav_guides"><span>Guides</span></li></a>
-                    <a href=""><li id="nav_guild"><span>La Guilde</span></li></a>
-                    <a href=""><li id="nav_events"><span>Événements</span></li></a>
-                    <a href=""><li id="nav_search"><span>Recherche</span></li></a>
+                    <li><a href="">Actualités</a></li>
+                    <li><a href="">La Chaîne</a></li>
+                    <li><a href="">Chroniques</a></li>
+                    <li><a href="">Guides</a></li>
+                    <li><a href="">La Guilde</a></li>
+                    <li><a href="">Événements</a></li>
+                    <li><a href="">Recherche</a></li>
                 </ul>
             </nav>
 
-            <button id="ham_menu"><i class="fas fa-bars"></i></button>
+            <button id="ham-menu"><i class="fas fa-bars"></i></button>
         </header>
 
-        <nav>
+        <nav id="secondary-nav">
             <ul>
-                <a href=""><li id="nav_account"><span>Mon Compte</span></li></a>
-                <a href=""><li id="nav_forum"><span>Forum</span></li></a>
-                <a href=""><li id="nav_discord"><span>Discord</span></li></a>
-                <a href=""><li id="nav_twitter"><span>Twitter</span></li></a>
-                <a href=""><li id="nav_facebook"><span>Facebook</span></li></a>
+                <li><a href="">Mon Compte</a></li>
+                <li><a href="">Forum</a></li>
+                <li><a href="">Discord</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Facebook</a></li>
             </ul>
         </nav>
         
         <div id="main_wrapper">
             <main>
+
+            </main>
+
+            
+        </div>
+		
+		<footer id="site-footer">
+            <p><small>©2019 Tous droits réservés @MMOShards.</small></p>
+		</footer>
+	</body>
+</html>
+
+
+
+
+
+
+<!--
+
                 <section class="home_section">
                     <h2>Actualités</h2>
 
@@ -150,16 +169,15 @@
                         <p>&#187;</p>
                     </div>
                 </section>
-            </main>
 
-            <aside>
+
+
+
+
+
+
+
+                <aside>
                 <p style="color:#FFF">PLACEHOLDER</p>
             </aside>
-        </div>
-		
-		<footer>
-            <p><small>©2018 Tous droits réservés @MMOShards.</small></p>
-		</footer>
-	</body>
-</html>
-
+-->
