@@ -30,13 +30,13 @@
 
 	<body>
 		<header id="site-header">
-            <h1><a href="">MMOShards</a></h1>
+            <h1><a href="index.php">MMOShards</a></h1>
 
             <nav>
                 <ul>
-                    <li><a href="">Actualités</a></li>
+                    <li><a href="index.php?p=news">Actualités</a></li>
                     <li><a href="">La Chaîne</a></li>
-                    <li><a href="">Chroniques</a></li>
+                    <li><a href="index.php?p=chronicles">Chroniques</a></li>
                     <li><a href="">Guides</a></li>
                     <li><a href="">La Guilde</a></li>
                     <li><a href="">Événements</a></li>
@@ -58,16 +58,7 @@
         </nav>
         
         <main>
-            <?php 
-                if(!empty($content))
-                {
-                    echo $content;
-                }
-                else
-                {
-                    echo '<p>La page n\'existe pas.</p>';
-                }
-            ?>
+            <?= $content; ?>
         </main>
 		
 		<footer id="site-footer">
