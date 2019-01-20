@@ -57,7 +57,7 @@
             </ul>
         </nav>
         
-        <main>
+        <main style="margin-left: 150px;">
             <?= $content; ?>
         </main>
 		

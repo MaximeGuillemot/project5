@@ -1,8 +1,9 @@
 <h2 style="margin-top: 200px; margin-left: 200px;">Test home</h2>
 
-<ul>
-    <?php foreach($db->query('SELECT * FROM news', 'App\Models\PostsModel') as $post): ?>
-        <li><a href="index.php?p=news&amp;id=<?= $post->id; ?>"><?= $post->title; ?></a></li>
+<?php foreach($db->query('SELECT * FROM news', 'App\Models\PostsModel') as $post): ?>
+    <h3><a href="<?= $post->getUrl(); ?>"><?= $post->title; ?></a></h3>
+    
+    <p><?= $post->getExcerpt(); ?></p>
 
-    <?php endforeach; ?>
-</ul>
+    <p><a href="<?= $post->getUrl(); ?>">Lire la suite</a></p>
+<?php endforeach; ?>

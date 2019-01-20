@@ -37,7 +37,7 @@ class Database {
     public function query($statement, $class) {
         $q = $this->getPDO()->prepare($statement);
         $q->execute();
-        $data = $q->fetchAll(PDO::FETCH_CLASS, $class);
+        $data = $q->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $class);
 
         return $data;
     }
