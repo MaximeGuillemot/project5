@@ -16,8 +16,6 @@ if(isset($_GET['p'])) {
     $p = 'home';
 }
 
-$db = new Database('mmoshards');
-
 ob_start();
 
 switch ($p) {
