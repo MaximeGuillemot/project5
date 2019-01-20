@@ -2,19 +2,18 @@
 
 namespace App\Models;
 
-class PostsModel {
+use \Lib\Post;
+
+class PostsModel extends Post {
+
+    public function __get($key) { // Magic method used for consistency with public properties defined by PDO fetch (allows $post->url).
+        $method = 'get' . ucfirst($key);
+        $this->$key = $this->$method();
+        return $this->$key;
+    }
 
     public function getUrl() {
 
         return 'index.php?p=news&id=' . $this->id;
-    }
-
-    public function getExcerpt($carLimit = 100) {
-
-        if(strlen($this->content) > $carLimit) {
-            return substr($this->content, 0, strpos($this->content, ' ', $carLimit)) . '...';
-        }
-        
-        return $this->content;        
-    }
+    }    
 }
