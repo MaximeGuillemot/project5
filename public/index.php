@@ -1,13 +1,11 @@
 <?php
 
-use \App\AutoloaderApp;
-use \Lib\Autoloader;
 use \Lib\Database\Database;
 
-require '../app/AutoloaderApp.php';
-AutoloaderApp::initiateAutoloader();
+require '../app/Autoloader.php';
+\App\Autoloader::initiateAutoloader();
 require '../lib/Autoloader.php';
-Autoloader::initiateAutoloader();
+\Lib\Autoloader::initiateAutoloader();
 
 
 if(isset($_GET['p'])) {
