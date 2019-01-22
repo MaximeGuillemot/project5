@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Lib\Post;
 use App\App;
+use App\Response;
 
 class PostsModel extends Post {
 
@@ -15,18 +16,38 @@ class PostsModel extends Post {
             $date;
 
     public function getUrl() {
-        return 'index.php?p=news&id=' . $this->id;
+        return 'index.php?p=posts&id=' . $this->id;
     }
 
-    public function getPost($id) {
-        return App::getDb()->query('SELECT * FROM posts LEFT JOIN post_types ON posts.type_id = post_types.id WHERE posts.id = ?', __CLASS__, [$id]);
+    public static function getPost($id) {
+        return App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+                                    FROM posts 
+                                    LEFT JOIN post_types ON posts.type_id = post_types.id 
+                                    WHERE posts.id = ?', 
+                                __CLASS__, [$id]);
     }
 
     public static function getPosts() {
-            return App::getDb()->query('SELECT * FROM posts LEFT JOIN post_types ON posts.type_id = post_types.id', __CLASS__);
+            return App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+                                        FROM posts 
+                                        LEFT JOIN post_types ON posts.type_id = post_types.id', 
+                                    __CLASS__);
     }
 
-    public static function getPostsByType($name = '') {
-        return App::getDb()->query('SELECT * FROM posts LEFT JOIN post_types ON posts.type_id = post_types.id WHERE post_types.type_name = ?', __CLASS__, [$name]);
+    public static function getPostsByType($name) {
+        $posts = App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+                                      FROM posts 
+                                      LEFT JOIN post_types ON posts.type_id = post_types.id 
+                                      WHERE post_types.type_name = ?', 
+                                    __CLASS__, [$name]);
+        
+        if(!$posts) {
+            Response::notFound();
+        }
+        elseif(count($posts) === 1) {
+            return array($posts);
+        }
+
+        return $posts;
     }
 }

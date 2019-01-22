@@ -21,10 +21,13 @@ switch ($p) {
         require '../app/Views/home.php';
         break;
     case 'news':
-        require '../app/Views/news.php';
+        require '../app/Views/posts.php';
+        break;
+    case 'posts':
+        require '../app/Views/posts.php';
         break;
     case 'chronicles':
-        require '../app/Views/chronicles.php';
+        require '../app/Views/posts.php';
         break;
     default:
         require '../app/Views/home.php';

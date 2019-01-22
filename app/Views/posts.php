@@ -1,11 +1,36 @@
 <?php
 
 use App\App;
+use App\Response;
 use App\Models\PostsModel;
+
+if(isset($_GET['p'])) {
+    $p = $_GET['p'];
+} else {
+    $p = 'posts';
+}
+
+switch ($p) {
+    case 'news':
+        $postType = 'Actualités';
+        break;
+    case 'chronicles':
+        $postType = 'Chroniques';
+        break;
+    default:
+        $postType = 'Accueil';
+        break;
+}
 
 if(isset($_GET['id'])) {
 
     $post = PostsModel::getPost($_GET['id']);
+
+    if(!$post) {
+        Response::notFound();
+    }
+
+    App::setTitle($post->title);
 ?>
     <h2 style="margin-top: 200px; margin-left: 200px;"><?= $post->title; ?></h2>
 
@@ -16,11 +41,9 @@ if(isset($_GET['id'])) {
 } else {
     echo '<h2 style="margin-top: 200px; margin-left: 200px;">Dernières news</h2>';
 
-    $postType = 'Actualités';
-    $nbPosts = count(PostsModel::getPostsByType($postType));
-    $posts = $nbPosts <= 1 ? array(PostsModel::getPostsByType($postType)) : PostsModel::getPostsByType($postType);
+    App::setTitle($postType);
 
-    foreach($posts as $post): ?>
+    foreach(PostsModel::getPostsByType($postType) as $post): ?>
         <h3><a href="<?= $post->getUrl(); ?>"><?= $post->title; ?></a></h3>
 
         <p><em><?= $post->type_name; ?></em></p>

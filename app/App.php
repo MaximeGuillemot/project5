@@ -12,7 +12,8 @@ class App {
           DB_USER = 'root',
           DB_PASS = '';
 
-    private static $db;
+    private static $db,
+                   $title = 'MMOShards';
 
     public static function getDb() {
         if(self::$db === null) {
@@ -28,5 +29,12 @@ class App {
         
         return self::$db;
     }
-    
+
+    public static function getTitle() {
+        return self::$title;
+    }
+
+    public static function setTitle($name) {
+        self::$title .= ' | ' . $name;
+    }
 }
