@@ -4,37 +4,48 @@ namespace App;
 
 use \PDO;
 use Lib\Database\Database;
+use App\Config;
 
 class App {
 
-    const DB_NAME = 'mmoshards',
-          DB_HOST = 'localhost',
-          DB_USER = 'root',
-          DB_PASS = '';
+    private $db;
+    public $title = 'MMOShards';
 
-    private static $db,
-                   $title = 'MMOShards';
+    private static $_instance;
 
-    public static function getDb() {
-        if(self::$db === null) {
+    public static function getInstance() {
+        if(self::$_instance === null) {
+            self::$_instance = new App();
+        }
+
+        return self::$_instance;
+    }
+
+    public function getModel($class) {
+        $className = '\\App\\Models\\' . $class;
+        
+        return new $className($this->getDb());
+    }
+
+    public function getDb() {
+
+        $config = Config::getInstance();
+
+        if($this->db === null) {
             try {
-                $db = new Database(self::DB_NAME, self::DB_HOST, self::DB_USER, self::DB_PASS);
+                $db = new Database($config->get('db_name'), $config->get('db_host'), $config->get('db_user'), $config->get('db_pass'));
             }
             catch(Exception $e) {
                 die('Error : ' . $e->getMessage());
             }
 
-            self::$db = $db;
+            $this->db = $db;
         }
         
-        return self::$db;
+        return $this->db;
     }
 
-    public static function getTitle() {
-        return self::$title;
-    }
-
-    public static function setTitle($name) {
-        self::$title .= ' | ' . $name;
+    public function setTitle($name) {
+        $this->title .= ' | ' . $name;
     }
 }

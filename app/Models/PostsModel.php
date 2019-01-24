@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Lib\Post;
+use Lib\Database\Database;
 use App\App;
-use App\Response;
 
 class PostsModel extends Post {
 
@@ -15,27 +15,33 @@ class PostsModel extends Post {
             $type_id,
             $date;
 
+    private $db;
+
+    public function __construct(Database $db = null) { // null case because of fetch creating instance of class without param
+        $this->db = $db;
+    }
+
     public function getUrl() {
         return 'index.php?p=posts&id=' . $this->id;
     }
 
-    public static function getPost($id) {
-        return App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+    public function getPost($id) {
+        return $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
                                     FROM posts 
                                     LEFT JOIN post_types ON posts.type_id = post_types.id 
                                     WHERE posts.id = ?', 
                                 __CLASS__, [$id]);
     }
 
-    public static function getPosts() {
-            return App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+    public function getPosts() {
+            return $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
                                         FROM posts 
                                         LEFT JOIN post_types ON posts.type_id = post_types.id', 
                                     __CLASS__);
     }
 
-    public static function getPostsByType($name) {
-        $posts = App::getDb()->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+    public function getPostsByType($name) {
+        $posts = $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
                                       FROM posts 
                                       LEFT JOIN post_types ON posts.type_id = post_types.id 
                                       WHERE post_types.type_name = ?', 

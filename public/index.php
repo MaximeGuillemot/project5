@@ -1,7 +1,5 @@
 <?php
 
-use \Lib\Database\Database;
-
 require '../app/Autoloader.php';
 \App\Autoloader::initiateAutoloader();
 require '../lib/Autoloader.php';

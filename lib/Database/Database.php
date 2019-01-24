@@ -34,7 +34,7 @@ class Database {
         return $this->pdo;
     }
 
-    public function query($statement, $class, $options = []) {
+    public function query($statement, $class = null, $options = []) {
         $q = $this->getPDO()->prepare($statement);
         $q->setFetchMode(PDO::FETCH_CLASS, $class);
         $q->execute($options);

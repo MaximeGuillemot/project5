@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<title><?= App\App::getTitle(); ?></title>
+		<title><?= App\App::getInstance()->title; ?></title>
 
 		<meta name="description" content="Actualités sur les MMORPG" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
