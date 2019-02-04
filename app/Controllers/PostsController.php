@@ -12,7 +12,6 @@ class PostsController extends AppController {
     }
 
     public function show($type) {
-
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
@@ -28,9 +27,24 @@ class PostsController extends AppController {
                 break;
         }
 
-        $posts = App::getInstance()->getModel('PostsModel')->getPostsByType($postType);
+        if($postType === 'Post') {
+            $post = App::getInstance()->getModel('PostsModel')->getPost($_GET['id']);
 
-        $this->render('posts/posts', compact('posts'));
+            if(!$post) {
+                Response::notFound();
+            }
+            
+            $this->render('posts/single', compact('post'));
+        }
+        else {
+            $posts = App::getInstance()->getModel('PostsModel')->getPostsByType($postType);
+
+            if(!$posts) {
+                Response::notFound();
+            }
+
+            $this->render('posts/posts', compact('posts'));
+        }        
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Lib\Models\Model;
 use Lib\Database\Database;
 use App\App;
+use App\Response;
 
 class PostsModel extends Model {
 
@@ -16,7 +17,7 @@ class PostsModel extends Model {
             $date;   
 
     public function getUrl() {
-        return 'index.php?p=posts&id=' . $this->id;
+        return 'index.php?p=post&id=' . $this->id;
     }
 
     public function getPost($id) {
