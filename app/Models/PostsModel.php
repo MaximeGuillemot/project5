@@ -2,24 +2,18 @@
 
 namespace App\Models;
 
-use Lib\Post;
+use Lib\Models\Model;
 use Lib\Database\Database;
 use App\App;
 
-class PostsModel extends Post {
+class PostsModel extends Model {
 
     public  $id, // Properties written manually for clarity but otherwise created automatically by PDO fetch
             $title,
             $content,
             $author,
             $type_id,
-            $date;
-
-    private $db;
-
-    public function __construct(Database $db = null) { // null case because of fetch creating instance of class without param
-        $this->db = $db;
-    }
+            $date;   
 
     public function getUrl() {
         return 'index.php?p=posts&id=' . $this->id;
@@ -38,6 +32,15 @@ class PostsModel extends Post {
                                         FROM posts 
                                         LEFT JOIN post_types ON posts.type_id = post_types.id', 
                                     __CLASS__);
+    }
+
+    public function getExcerpt($content, $carLimit = 100) {
+
+        if(strlen($content) > $carLimit) {
+            return substr($content, 0, strpos($content, ' ', $carLimit)) . '...';
+        }
+        
+        return $content;        
     }
 
     public function getPostsByType($name) {

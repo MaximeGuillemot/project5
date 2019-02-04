@@ -1,19 +1,19 @@
 <?php
 
-namespace App;
+namespace Lib;
 
 class Config {
 
     private $settings = [];
     private static $_instance;
 
-    public function __construct() {
-        $this->settings = require __DIR__ . '/config/config.php';
+    public function __construct($appConfigPath) {
+        $this->settings = require $appConfigPath;
     }
 
-    public static function getInstance() {
+    public static function getInstance($appConfigPath) {
         if(self::$_instance === null) {
-            self::$_instance = new Config();
+            self::$_instance = new Config($appConfigPath);
         }
 
         return self::$_instance;

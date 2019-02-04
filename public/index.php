@@ -1,9 +1,10 @@
 <?php
 
-require '../app/Autoloader.php';
-\App\Autoloader::initiateAutoloader();
-require '../lib/Autoloader.php';
-\Lib\Autoloader::initiateAutoloader();
+define('ROOT', dirname(__DIR__));
+
+require ROOT . '/app/App.php';
+
+App\App::load();
 
 
 if(isset($_GET['p'])) {
@@ -16,25 +17,25 @@ ob_start();
 
 switch ($p) {
     case 'home':
-        require '../app/Views/home.php';
+        require ROOT . '/app/Views/home.php';
         break;
     case 'news':
-        require '../app/Views/posts.php';
+        require ROOT . '/app/Views/posts/posts.php';
         break;
     case 'posts':
-        require '../app/Views/posts.php';
+        require ROOT . '/app/Views/posts/posts.php';
         break;
     case 'chronicles':
-        require '../app/Views/posts.php';
+        require ROOT . '/app/Views/posts/posts.php';
         break;
     default:
-        require '../app/Views/home.php';
+        require ROOT . '/app/Views/home.php';
         break;
 }
 
 $content = ob_get_clean();
 
-require '../app/Views/templates/layout.php';
+require ROOT . '/app/Views/templates/layout.php';
 
 
 

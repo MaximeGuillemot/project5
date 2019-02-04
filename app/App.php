@@ -4,7 +4,7 @@ namespace App;
 
 use \PDO;
 use Lib\Database\Database;
-use App\Config;
+use Lib\Config;
 
 class App {
 
@@ -21,6 +21,19 @@ class App {
         return self::$_instance;
     }
 
+    public static function load() {
+        session_start();
+
+        require ROOT . '/app/Autoloader.php';
+        Autoloader::initiateAutoloader();
+        require ROOT . '/lib/Autoloader.php';
+        \Lib\Autoloader::initiateAutoloader();
+    }
+
+    public static function test() {
+        echo 'hello';
+    }
+
     public function getModel($class) {
         $className = '\\App\\Models\\' . $class;
         
@@ -29,7 +42,7 @@ class App {
 
     public function getDb() {
 
-        $config = Config::getInstance();
+        $config = Config::getInstance(ROOT . '/app/config/config.php');
 
         if($this->db === null) {
             try {
