@@ -13,29 +13,28 @@ if(isset($_GET['p'])) {
     $p = 'home';
 }
 
-ob_start();
-
 switch ($p) {
     case 'home':
-        require ROOT . '/app/Views/home.php';
+        $controller = new \App\Controllers\PostsController();
+        $controller->index();
         break;
     case 'news':
-        require ROOT . '/app/Views/posts/posts.php';
-        break;
-    case 'posts':
-        require ROOT . '/app/Views/posts/posts.php';
+        $controller = new \App\Controllers\PostsController();
+        $controller->show('news');
         break;
     case 'chronicles':
-        require ROOT . '/app/Views/posts/posts.php';
+        $controller = new \App\Controllers\PostsController();
+        $controller->show('chronicles');
+        break;
+    case 'post':
+        $controller = new \App\Controllers\PostsController();
+        $controller->show('post');
         break;
     default:
-        require ROOT . '/app/Views/home.php';
+        $controller = new \App\Controllers\PostsController();
+        $controller->index();
         break;
-}
-
-$content = ob_get_clean();
-
-require ROOT . '/app/Views/templates/layout.php';
+}  
 
 
 
