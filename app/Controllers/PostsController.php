@@ -16,25 +16,24 @@ class PostsController extends AppController {
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
+                $this->setTitle('Actualités');
                 break;
             case 'chronicles':
                 $postType = 'Chroniques';
-                break;
-            case 'post':
-                $postType = 'Post';
+                $this->setTitle('Chroniques');
                 break;
             default:
                 $postType = 'Accueil';
                 break;
         }
 
-            $posts = $this->PostsModel->getPostsByType($postType);
+        $posts = $this->PostsModel->getPostsByType($postType);
 
-            if(!$posts) {
-                Response::notFound();
-            }
+        if(!$posts) {
+            Response::notFound();
+        }
 
-            $this->render('posts/posts', compact('posts'));   
+        $this->render('posts/posts', compact('posts'));   
     }
 
     public function showSingle() {
@@ -44,6 +43,7 @@ class PostsController extends AppController {
                 Response::notFound();
             }
 
+            $this->setTitle($post->title);
             $this->render('posts/single', compact('post'));      
     }
 

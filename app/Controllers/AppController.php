@@ -13,6 +13,10 @@ class AppController extends Controller {
         $this->viewPath = ROOT . '/app/Views/';
     }
 
+    protected function setTitle($title) {
+        App::getInstance()->setTitle($title);
+    }
+
     protected function loadModel($modelName) {
         $this->$modelName = App::getInstance()->getModel($modelName);
     }
