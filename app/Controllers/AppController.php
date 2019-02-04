@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Lib\Controllers\Controller;
+use App\App;
 
 class AppController extends Controller {
 
@@ -10,5 +11,13 @@ class AppController extends Controller {
 
     public function __construct() {
         $this->viewPath = ROOT . '/app/Views/';
+    }
+
+    protected function loadModel($modelName) {
+        $this->$modelName = App::getInstance()->getModel($modelName);
+    }
+
+    public function index() {
+        $this->render('home');
     }
 }

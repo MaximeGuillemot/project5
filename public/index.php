@@ -15,20 +15,20 @@ if(isset($_GET['p'])) {
 
 switch ($p) {
     case 'home':
-        $controller = new \App\Controllers\PostsController();
+        $controller = new \App\Controllers\AppController();
         $controller->index();
         break;
     case 'news':
         $controller = new \App\Controllers\PostsController();
-        $controller->show('news');
+        $controller->showPosts('news');
         break;
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $controller->show('chronicles');
+        $controller->showPosts('chronicles');
         break;
     case 'post':
         $controller = new \App\Controllers\PostsController();
-        $controller->show('post');
+        $controller->showSingle();
         break;
     default:
         $controller = new \App\Controllers\PostsController();
