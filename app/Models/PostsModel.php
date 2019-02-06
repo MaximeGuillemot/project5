@@ -23,19 +23,30 @@ class PostsModel extends Model {
                                 'App\Entities\PostsEntity');
     }
 
-    public function getPostsByType($name, $lowLimit = 0, $upLimit = 5) {
+    public function getPostsByType($type, $lowLimit = 0, $upLimit = 5) {
         $posts = $this->db->query('SELECT posts.id, posts.title, posts.content, posts.date, post_types.type_name 
                                       FROM posts 
                                       LEFT JOIN post_types ON posts.type_id = post_types.id 
                                       WHERE post_types.type_name = ?
                                       ORDER BY posts.date DESC
                                       LIMIT ?, ?', 
-                                    'App\Entities\PostsEntity', [$name, $lowLimit, $upLimit]);
+                                    'App\Entities\PostsEntity', [$type, $lowLimit, $upLimit]);
         
+        if(!$posts) {
+            return null;
+        }
+
         if(count($posts) === 1) {
             return array($posts);
         }
 
         return $posts;
+    }
+
+    public function countPostsByType($type) {
+        return $this->db->count('SELECT COUNT(*) 
+                                FROM posts
+                                LEFT JOIN post_types ON posts.type_id = post_types.id 
+                                WHERE post_types.type_name = ?', [$type]);
     }
 }

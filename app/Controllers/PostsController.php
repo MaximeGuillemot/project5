@@ -12,7 +12,7 @@ class PostsController extends AppController {
         $this->loadModel('PostsModel');
     }
 
-    public function showPosts($type) {
+    public function showPosts($type, $page = 0) {
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
@@ -25,14 +25,17 @@ class PostsController extends AppController {
                 break;
         }
 
-        $posts = $this->PostsModel->getPostsByType($postType);
+        $posts = $this->PostsModel->getPostsByType($postType, $page * 5);
 
         if(!$posts) {
             Response::notFound();
         }
 
+        $nbPosts = $this->PostsModel->countPostsByType($postType);
+        $pageUrl = $this->genPageLink($type);
+
         $this->setTitle($postType);
-        $this->render('posts/posts', compact('posts'));   
+        $this->render('posts/posts', compact('posts', 'nbPosts', 'pageUrl'));
     }
 
     public function showSingle() {
@@ -46,5 +49,8 @@ class PostsController extends AppController {
             $this->render('posts/single', compact('post'));      
     }
 
+    public function genPageLink($postType) {
+        return 'index.php?p=' . $postType . '&page=';
+    }
 }
 

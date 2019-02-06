@@ -13,6 +13,12 @@ if(isset($_GET['p'])) {
     $p = 'home';
 }
 
+if(isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 0;
+}
+
 switch ($p) {
     case 'home':
         $controller = new \App\Controllers\AppController();
@@ -20,11 +26,11 @@ switch ($p) {
         break;
     case 'news':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p);
+        $controller->showPosts($p, $page);
         break;
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p);
+        $controller->showPosts($p, $page);
         break;
     case 'post':
         $controller = new \App\Controllers\PostsController();
