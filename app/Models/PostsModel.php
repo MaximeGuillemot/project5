@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Lib\Models\Model;
-use Lib\Database\Database;
 use App\Response;
 
 class PostsModel extends Model {
@@ -44,7 +43,7 @@ class PostsModel extends Model {
     }
 
     public function countPostsByType($type) {
-        return $this->db->count('SELECT COUNT(*) 
+        return $this->db->count('SELECT *
                                 FROM posts
                                 LEFT JOIN post_types ON posts.type_id = post_types.id 
                                 WHERE post_types.type_name = ?', [$type]);

@@ -36,8 +36,16 @@ switch ($p) {
         $controller = new \App\Controllers\PostsController();
         $controller->showSingle();
         break;
+    case 'login':
+        $controller = new \App\Controllers\UsersController();
+        $controller->login();
+        break;
+    case 'admin':
+        $controller = new \App\Controllers\AppController();
+        $controller->index();
+        break;
     default:
-        $controller = new \App\Controllers\PostsController();
+        $controller = new \App\Controllers\AppController();
         $controller->index();
         break;
 }  

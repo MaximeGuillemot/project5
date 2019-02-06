@@ -30,12 +30,10 @@ class App {
         \Lib\Autoloader::initiateAutoloader();
     }
 
-    public static function test() {
-        echo 'hello';
-    }
-
     public function getModel($class) {
         $className = '\\App\\Models\\' . $class;
+
+        var_dump($className);
         
         return new $className($this->getDb());
     }

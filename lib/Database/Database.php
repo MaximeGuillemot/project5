@@ -36,13 +36,17 @@ class Database {
 
     public function query($statement, $class = null, $options = []) {
         $q = $this->getPDO()->prepare($statement);
-        $q->setFetchMode(PDO::FETCH_CLASS, $class);
+
+        if($class === null) {
+            $q->setFetchMode(PDO::FETCH_OBJ);
+        } else {
+            $q->setFetchMode(PDO::FETCH_CLASS, $class);
+        }
 
         for ($i = 0; $i < sizeof($options); $i++) { // Bind loop rather than just execute because of INT params interpreted as STR
             if(is_int($options[$i])) {
                 $q->bindParam($i+1, $options[$i], PDO::PARAM_INT);
-            }
-            else {
+            } else {
                 $q->bindParam($i+1, $options[$i], PDO::PARAM_STR);
             }
         }
@@ -61,10 +65,7 @@ class Database {
     }
 
     public function count($statement, $options = []) {
-        $q = $this->getPDO()->prepare('SELECT * 
-                                       FROM posts
-                                       LEFT JOIN post_types ON posts.type_id = post_types.id 
-                                       WHERE post_types.type_name = ?');
+        $q = $this->getPDO()->prepare($statement);
         $q->execute($options); 
 
         return $q->rowCount();
