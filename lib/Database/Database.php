@@ -37,7 +37,17 @@ class Database {
     public function query($statement, $class = null, $options = []) {
         $q = $this->getPDO()->prepare($statement);
         $q->setFetchMode(PDO::FETCH_CLASS, $class);
-        $q->execute($options);
+
+        for ($i = 0; $i < sizeof($options); $i++) { 
+            if(is_int($options[$i])) {
+                $q->bindParam($i+1, $options[$i], PDO::PARAM_INT);
+            }
+            else {
+                $q->bindParam($i+1, $options[$i], PDO::PARAM_STR);
+            }
+        }
+        
+        $q->execute();
         $count = $q->rowCount();
 
         if($count <= 1)

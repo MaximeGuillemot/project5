@@ -20,11 +20,11 @@ switch ($p) {
         break;
     case 'news':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts('news');
+        $controller->showPosts($p);
         break;
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts('chronicles');
+        $controller->showPosts($p);
         break;
     case 'post':
         $controller = new \App\Controllers\PostsController();

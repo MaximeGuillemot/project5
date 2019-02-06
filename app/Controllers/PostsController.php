@@ -16,11 +16,9 @@ class PostsController extends AppController {
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
-                $this->setTitle('Actualités');
                 break;
             case 'chronicles':
                 $postType = 'Chroniques';
-                $this->setTitle('Chroniques');
                 break;
             default:
                 $postType = 'Accueil';
@@ -33,6 +31,7 @@ class PostsController extends AppController {
             Response::notFound();
         }
 
+        $this->setTitle($postType);
         $this->render('posts/posts', compact('posts'));   
     }
 
