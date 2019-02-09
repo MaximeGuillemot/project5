@@ -13,34 +13,12 @@ class AdminController extends AppController {
     }
 
     public function index() {
-        if(isset($_GET['sec'])) {
-            $sec = $_GET['sec'];
-        } else {
-            $sec = 'home';
-        }
-
-        switch ($sec) {
-            case 'home':
-                $this->render('admin/index');
-                break;
-            case 'posts':
-                $this->render('admin/posts/index');
-                break;
-            default:
-                $this->render('admin/index');
-                break;
-        }
+        $this->render('admin/index');
     }
 
-    public function listPosts() {
-        $posts = $PostsModel->getAllPosts();
-        $titles = [];
-
-        foreach ($posts as $post) {
-            $titles[] = $post->title;
-        }
-        
-        return $titles;
+    public function posts() {
+        $posts = $this->PostsModel->getAllPosts();
+        $this->render('admin/posts/index', compact('posts'));
     }
 }
 

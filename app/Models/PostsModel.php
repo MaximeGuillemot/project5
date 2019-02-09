@@ -18,7 +18,8 @@ class PostsModel extends Model {
     public function getAllPosts() {
         return $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
                                     FROM posts 
-                                    LEFT JOIN post_types ON posts.type_id = post_types.id', 
+                                    LEFT JOIN post_types ON posts.type_id = post_types.id
+                                    ORDER BY posts.id', 
                                 'App\Entities\PostsEntity');
     }
 

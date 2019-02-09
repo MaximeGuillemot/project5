@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+        <base href="http://127.0.0.1/project5/">
+
 		<meta charset="utf-8" />
 
 		<title><?= App\App::getInstance()->title; ?></title>
@@ -24,19 +26,19 @@
 
 		<link rel="icon" sizes="16x16" href="images/favicon.ico" />
 
-        <link href="css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="http://127.0.0.1/project5/public/css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
         <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
 	</head>
 
 	<body>
 		<header id="site-header">
-            <h1><a href="index.php">MMOShards</a></h1>
+            <h1><a href="./">MMOShards</a></h1>
 
             <nav>
                 <ul>
-                    <li><a href="index.php?p=news">Actualités</a></li>
+                    <li><a href="./news/">Actualités</a></li>
                     <li><a href="">La Chaîne</a></li>
-                    <li><a href="index.php?p=chronicles">Chroniques</a></li>
+                    <li><a href="./chronicles/">Chroniques</a></li>
                     <li><a href="">Guides</a></li>
                     <li><a href="">La Guilde</a></li>
                     <li><a href="">Événements</a></li>

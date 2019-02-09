@@ -1,16 +1,13 @@
 <?php
-
+//var_dump($_SERVER);
 define('ROOT', dirname(__DIR__));
 
 require ROOT . '/app/App.php';
 
 App\App::load();
 
-if(isset($_GET['p'])) {
-    $p = $_GET['p'];
-} else {
-    $p = 'home';
-}
+$p = Lib\Config::cleanUrl();
+
 
 if(isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -42,6 +39,10 @@ switch ($p) {
     case 'admin':
         $controller = new \App\Controllers\AdminController();
         $controller->index();
+        break;
+    case 'admin/posts':
+        $controller = new \App\Controllers\AdminController();
+        $controller->posts();
         break;
     default:
         $controller = new \App\Controllers\AppController();
