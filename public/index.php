@@ -6,13 +6,12 @@ require ROOT . '/app/App.php';
 
 App\App::load();
 
-$p = Lib\Config::cleanUrl();
+$p = Lib\Config::cleanUrl()[0];
 
-
-if(isset($_GET['page'])) {
-    $page = $_GET['page'];
+if(Lib\Config::cleanUrl()[1] !== '') {
+    $page = Lib\Config::cleanUrl()[1];
 } else {
-    $page = 0;
+    $page = 1;
 }
 
 switch ($p) {

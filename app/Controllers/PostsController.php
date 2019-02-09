@@ -12,7 +12,7 @@ class PostsController extends AppController {
         $this->loadModel('PostsModel');
     }
 
-    public function showPosts($type, $page = 0) {
+    public function showPosts($type, $page = 1) {
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
@@ -24,6 +24,8 @@ class PostsController extends AppController {
                 $postType = 'Accueil';
                 break;
         }
+
+        $page--;
 
         $posts = $this->PostsModel->getPostsByType($postType, $page * 5);
 
@@ -50,7 +52,7 @@ class PostsController extends AppController {
     }
 
     public function genPageLink($postType) {
-        return 'index.php?p=' . $postType . '&page=';
+        return './' . $postType . '/';
     }
 }
 

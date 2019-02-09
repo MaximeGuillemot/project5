@@ -13,9 +13,9 @@
 ?>
 <p>
     <?php
-        for($i = 0; $i <= $nbPosts / 5; $i++) {
+        for($i = 1; $i <= $nbPosts / 5 + 1; $i++) {
     ?>
-            <a href=<?= $pageUrl . $i; ?>><?= $i+1; ?></a>
+            <a href=<?= $pageUrl . $i; ?>><?= $i; ?></a>
     <?php
         }
     ?>

@@ -30,6 +30,6 @@ class Config {
     public static function cleanUrl() {
         $urlParts = explode('/', $_SERVER['REQUEST_URI']);
         end($urlParts);
-        return prev($urlParts);
+        return [prev($urlParts), end($urlParts)];
     }
 }
