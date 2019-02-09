@@ -1,0 +1,1 @@
+<p><a href="index.php?p=admin&amp;sec=posts">Administrer les posts</a></p>

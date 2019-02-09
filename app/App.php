@@ -32,8 +32,6 @@ class App {
 
     public function getModel($class) {
         $className = '\\App\\Models\\' . $class;
-
-        var_dump($className);
         
         return new $className($this->getDb());
     }

@@ -1,15 +1,12 @@
 <?php
 if(!empty($_POST)) {
-    
-
-    if($auth->auth($_POST['username'], $_POST['password'])) {
-        die('Connecté');
+    if($auth->auth($_POST['username'], $_POST['password'], 'App\Entities\UsersEntity')) {
+        App\Response::loggedIn();
     } else {
-        die('Pas co');
+?>
+        <p style="color:red;">Identifiants incorrects.</p>
+<?php
     }
-
-
-
 }
 ?>
 

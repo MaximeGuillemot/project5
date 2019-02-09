@@ -6,7 +6,6 @@ require ROOT . '/app/App.php';
 
 App\App::load();
 
-
 if(isset($_GET['p'])) {
     $p = $_GET['p'];
 } else {
@@ -41,7 +40,7 @@ switch ($p) {
         $controller->login();
         break;
     case 'admin':
-        $controller = new \App\Controllers\AppController();
+        $controller = new \App\Controllers\AdminController();
         $controller->index();
         break;
     default:

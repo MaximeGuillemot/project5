@@ -13,4 +13,9 @@ class Response {
         header('HTTP/1.0 403 Forbidden');
         die('Accès interdit.');
     }
+
+    public static function loggedIn() {
+        header('HTTP/1.0 200 OK');
+        header('Location: index.php');
+    }
 }
