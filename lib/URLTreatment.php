@@ -2,8 +2,6 @@
 
 namespace Lib;
 
-use App\Response; //Change to lib later
-
 class URLTreatment {
 
     public static function cleanUrl($dir = null) {
@@ -48,13 +46,8 @@ class URLTreatment {
             ($URL != '') && // If the URL isn't void
             ($URL != 'index.php')) // If it's not index.php, which it should always be
         {
-            Response::notFound(); // Then return 404 error and not 403 because the user shouldn't know if the requested file actually exists or not
+            return null; // Then return 404 error and not 403 because the user shouldn't know if the requested file actually exists or not
         }
-        
-        /*
-            If $url is empty of default value, set action to 'default'
-            otherwise, explode $URL into an array
-        */
 
         // If the URL is empty or aiming at index, invoke default
         // Otherwise, safely decode the URL into an array that defines the path
@@ -63,89 +56,5 @@ class URLTreatment {
             ($URL == 'index.php') ||
             ($URL == 'index.html')
         ) ? array('default') : explode('/',html_entity_decode($URL));
-        
-        /*
-            I strip out non word characters from $ACTION[0] as the include
-            which makes sure no other oddball attempts at directory
-            manipulation can be done. This means your include's basename
-            can only contain a..z, A..Z, 0..9 and underscore!
-            
-            for example, as root this would make:
-            pages/default.php
-        *//*
-        $includeFile = 'pages/'.preg_replace('/[^\w]/','',$action[0]).'.php';
-        
-        if (is_file($includeFile)) {
-        
-            include($includeFile);
-            
-        } Response::notFound();*/
     }
-    
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    public static function getParts() {
-        $urlParts = explode('/', $_SERVER['REQUEST_URI']);
-        $section = $urlParts[2]; // Might need adjustment for prod
-        $pageName = $section;
-        $postTitle = null;
-        $pageNb = 1;
-
-        if(end($urlParts) !== '') {
-            if(end($urlParts) == (int) end($urlParts) && (int) end($urlParts) !== 0) {
-                $pageNb = end($urlParts);
-            } else {
-                $pageName = end($urlParts);
-            }
-        } else {
-            $pageName = prev($urlParts);
-        }
-
-        if($section !== $pageName) {
-            $postTitle = $pageName;
-        }
-
-        return [
-            'section' => $section,
-            'pageName' => $pageName, 
-            'pageNb' => $pageNb,
-            'postTitle' => $postTitle];
-    }*/
 }

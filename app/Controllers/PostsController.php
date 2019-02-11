@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Response;
-
 class PostsController extends AppController {
 
     public function __construct() {
@@ -24,11 +22,15 @@ class PostsController extends AppController {
                 return;
             }
         }
-
-        $postType = $this->frenchTypes($urlInfo[0]);
         
         $posts = $this->PostsModel->getPostsByType($urlInfo[0], $page * 5);
 
+        if(!$posts) {
+            ResponseController::getInstance()->error404();
+            return;
+        }
+
+        $postType = $this->frenchTypes($urlInfo[0]);
         $nbPosts = $this->PostsModel->countPostsByType($urlInfo[0]);
         $pageUrl = $this->genPageLink($urlInfo[0]);
 
@@ -38,6 +40,11 @@ class PostsController extends AppController {
 
     public function showSingle($postTitle) {
             $post = $this->PostsModel->getPostByTitle($postTitle);
+
+            if(!$post) {
+                ResponseController::getInstance()->error404();
+                return;
+            }
 
             $this->setTitle($post->title);
             $this->render('posts/single', compact('post'));  
