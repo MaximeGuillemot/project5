@@ -4,21 +4,31 @@ namespace Lib;
 
 class URLTreatment {
 
-    public static function getLastPart() {
+    public static function getParts() {
         $urlParts = explode('/', $_SERVER['REQUEST_URI']);
+        $section = $urlParts[2]; // Might need adjustment for prod
+        $pageName = $section;
+        $postTitle = null;
+        $pageNb = 1;
 
-        if(end($urlParts) === '' || end($urlParts) == (int) end($urlParts)) {
-            $section = prev($urlParts);
+        if(end($urlParts) !== '') {
+            if(end($urlParts) == (int) end($urlParts) && (int) end($urlParts) !== 0) {
+                $pageNb = end($urlParts);
+            } else {
+                $pageName = end($urlParts);
+            }
         } else {
-            $section = end($urlParts);
+            $pageName = prev($urlParts);
         }
 
-        if(end($urlParts) == (int) end($urlParts) && end($urlParts) != '') {
-            $pageNb = end($urlParts);
-        } else {
-            $pageNb = 1;
+        if($section !== $pageName) {
+            $postTitle = $pageName;
         }
 
-        return ['section' => $section, 'pageNb' => $pageNb];
+        return [
+            'section' => $section,
+            'pageName' => $pageName, 
+            'pageNb' => $pageNb,
+            'postTitle' => $postTitle];
     }
 }

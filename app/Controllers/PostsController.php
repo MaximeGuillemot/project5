@@ -25,28 +25,20 @@ class PostsController extends AppController {
                 break;
         }
 
-        $posts = $this->PostsModel->getPostsByType($postType, $page * 5);
+        $posts = $this->PostsModel->getPostsByType($type, $page * 5);
 
-        if(!$posts) {
-            Response::notFound();
-        }
-
-        $nbPosts = $this->PostsModel->countPostsByType($postType);
+        $nbPosts = $this->PostsModel->countPostsByType($type);
         $pageUrl = $this->genPageLink($type);
 
         $this->setTitle($postType);
-        $this->render('posts/posts', compact('posts', 'nbPosts', 'pageUrl'));
+        $this->render('posts/posts', compact('posts', 'nbPosts', 'pageUrl', 'postType'));
     }
 
-    public function showSingle() {
-            $post = $this->PostsModel->getPost($_GET['id']);
-
-            if(!$post) {
-                Response::notFound();
-            }
+    public function showSingle($postTitle) {
+            $post = $this->PostsModel->getPostByTitle($postTitle);
 
             $this->setTitle($post->title);
-            $this->render('posts/single', compact('post'));      
+            $this->render('posts/single', compact('post'));  
     }
 
     public function genPageLink($postType) {

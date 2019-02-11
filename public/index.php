@@ -1,32 +1,24 @@
 <?php
-//var_dump($_SERVER);
 define('ROOT', dirname(__DIR__));
 
 require ROOT . '/app/App.php';
 
 App\App::load();
 
-$urlLastParts = Lib\URLTreatment::getLastPart();
-$p = $urlLastParts['section'];
-$pageNb = $urlLastParts['pageNb'] - 1;
+$urlParts = Lib\URLTreatment::getParts();
+$section = $urlParts['section'];
+$pageNb = $urlParts['pageNb'] - 1;
+$postTitle = $urlParts['postTitle'];
 
-
-switch ($p) {
+switch ($section) {
     case 'home':
         $controller = new \App\Controllers\AppController();
         $controller->index();
         break;
     case 'news':
-        $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p, $pageNb);
-        break;
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p, $pageNb);
-        break;
-    case 'post':
-        $controller = new \App\Controllers\PostsController();
-        $controller->showSingle();
+        $postTitle ? $controller->showSingle($postTitle) : $controller->showPosts($section, $pageNb);
         break;
     case 'login':
         $controller = new \App\Controllers\UsersController();

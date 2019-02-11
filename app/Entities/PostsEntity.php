@@ -8,12 +8,13 @@ class PostsEntity extends Post {
 
     public  $id, // Properties written manually for clarity but otherwise created automatically by PDO fetch
             $title,
+            $url_title,
             $content,
             $author,
-            $type_id,
+            $type,
             $date;
 
     public function getUrl() {
-        return 'index.php?p=post&id=' . $this->id;
+        return './' . $this->type . '/' . $this->url_title;
     }
 }

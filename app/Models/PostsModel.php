@@ -7,26 +7,32 @@ use App\Response;
 
 class PostsModel extends Model {
 
-    public function getPost($id) {
-        return $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+    public function getPostById($id) {
+        return $this->db->query('SELECT *
                                     FROM posts 
-                                    LEFT JOIN post_types ON posts.type_id = post_types.id 
                                     WHERE posts.id = ?', 
                                 'App\Entities\PostsEntity', [$id]);
     }
 
-    public function getAllPosts() {
-        return $this->db->query('SELECT posts.id, posts.title, posts.content, post_types.type_name 
+    public function getPostByTitle($title) {
+        return $this->db->query('SELECT *
                                     FROM posts 
-                                    LEFT JOIN post_types ON posts.type_id = post_types.id
+                                    WHERE posts.url_title = ?', 
+                                'App\Entities\PostsEntity', [$title]);
+    }
+
+    public function getAllPosts() {
+        return $this->db->query('SELECT *
+                                    FROM posts 
+                                    LEFT JOIN post_types ON posts.type = post_types.type_name
                                     ORDER BY posts.id', 
                                 'App\Entities\PostsEntity');
     }
 
     public function getPostsByType($type, $lowLimit = 0, $upLimit = 5) {
-        $posts = $this->db->query('SELECT posts.id, posts.title, posts.content, posts.date, post_types.type_name 
+        $posts = $this->db->query('SELECT *
                                       FROM posts 
-                                      LEFT JOIN post_types ON posts.type_id = post_types.id 
+                                      LEFT JOIN post_types ON posts.type = post_types.type_name 
                                       WHERE post_types.type_name = ?
                                       ORDER BY posts.date DESC
                                       LIMIT ?, ?', 
@@ -46,7 +52,7 @@ class PostsModel extends Model {
     public function countPostsByType($type) {
         return $this->db->count('SELECT *
                                 FROM posts
-                                LEFT JOIN post_types ON posts.type_id = post_types.id 
+                                LEFT JOIN post_types ON posts.type = post_types.type_name
                                 WHERE post_types.type_name = ?', [$type]);
     }
 }
