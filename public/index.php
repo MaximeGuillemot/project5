@@ -5,12 +5,9 @@ require ROOT . '/app/App.php';
 
 App\App::load();
 
-$urlParts = Lib\URLTreatment::getParts();
-$section = $urlParts['section'];
-$pageNb = $urlParts['pageNb'] - 1;
-$postTitle = $urlParts['postTitle'];
+$action = Lib\URLTreatment::cleanUrl('public');
 
-switch ($section) {
+switch($action[0]) {
     case 'home':
         $controller = new \App\Controllers\AppController();
         $controller->index();
@@ -18,7 +15,7 @@ switch ($section) {
     case 'news':
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $postTitle ? $controller->showSingle($postTitle) : $controller->showPosts($section, $pageNb);
+        $controller->showPosts($action);
         break;
     case 'login':
         $controller = new \App\Controllers\UsersController();
@@ -28,7 +25,7 @@ switch ($section) {
         $controller = new \App\Controllers\AdminController();
         $controller->index();
         break;
-    case 'admin/posts':
+    case 'admin-posts':
         $controller = new \App\Controllers\AdminController();
         $controller->posts();
         break;
@@ -36,8 +33,4 @@ switch ($section) {
         $controller = new \App\Controllers\AppController();
         $controller->index();
         break;
-}  
-
-
-
-
+}

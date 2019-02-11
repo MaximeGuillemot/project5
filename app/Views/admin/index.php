@@ -1,1 +1,1 @@
-<p><a href="index.php?p=admin/posts">Administrer les posts</a></p>
+<p><a href="./admin-posts/">Administrer les posts</a></p>
