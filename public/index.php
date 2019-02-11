@@ -6,13 +6,10 @@ require ROOT . '/app/App.php';
 
 App\App::load();
 
-$p = Lib\Config::cleanUrl()[0];
+$urlLastParts = Lib\URLTreatment::getLastPart();
+$p = $urlLastParts['section'];
+$pageNb = $urlLastParts['pageNb'] - 1;
 
-if(Lib\Config::cleanUrl()[1] !== '') {
-    $page = Lib\Config::cleanUrl()[1];
-} else {
-    $page = 1;
-}
 
 switch ($p) {
     case 'home':
@@ -21,11 +18,11 @@ switch ($p) {
         break;
     case 'news':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p, $page);
+        $controller->showPosts($p, $pageNb);
         break;
     case 'chronicles':
         $controller = new \App\Controllers\PostsController();
-        $controller->showPosts($p, $page);
+        $controller->showPosts($p, $pageNb);
         break;
     case 'post':
         $controller = new \App\Controllers\PostsController();

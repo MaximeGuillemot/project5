@@ -12,7 +12,7 @@ class PostsController extends AppController {
         $this->loadModel('PostsModel');
     }
 
-    public function showPosts($type, $page = 1) {
+    public function showPosts($type, $page = 0) {
         switch ($type) {
             case 'news':
                 $postType = 'Actualités';
@@ -24,8 +24,6 @@ class PostsController extends AppController {
                 $postType = 'Accueil';
                 break;
         }
-
-        $page--;
 
         $posts = $this->PostsModel->getPostsByType($postType, $page * 5);
 

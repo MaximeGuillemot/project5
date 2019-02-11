@@ -26,10 +26,4 @@ class Config {
 
         return $this->settings[$info];
     }
-
-    public static function cleanUrl() {
-        $urlParts = explode('/', $_SERVER['REQUEST_URI']);
-        end($urlParts);
-        return [prev($urlParts), end($urlParts)];
-    }
 }
