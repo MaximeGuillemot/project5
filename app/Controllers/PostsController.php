@@ -26,7 +26,8 @@ class PostsController extends AppController {
         $posts = $this->PostsModel->getPostsByType($urlInfo[0], $page * 5);
 
         if(!$posts) {
-            ResponseController::getInstance()->error404();
+            $controller = new AppController();
+            $controller->error404();
             return;
         }
 
@@ -42,7 +43,8 @@ class PostsController extends AppController {
             $post = $this->PostsModel->getPostByTitle($postTitle);
 
             if(!$post) {
-                ResponseController::getInstance()->error404();
+                $controller = new AppController();
+                $controller->error404();
                 return;
             }
 

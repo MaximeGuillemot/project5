@@ -23,14 +23,10 @@ switch($action[0]) {
         break;
     case 'admin':
         $controller = new App\Controllers\AdminController();
-        $controller->index();
-        break;
-    case 'admin-posts':
-        $controller = new App\Controllers\AdminController();
-        $controller->posts();
+        $controller->adminIndex($action);
         break;
     default:
-        $controller = App\Controllers\ResponseController::getInstance();
+        $controller = new App\Controllers\AppController();
         $controller->error404();
         break;
 }
