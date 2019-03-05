@@ -37,18 +37,23 @@ class Database {
     public function query($statement, $class = null, $options = []) {
         $q = $this->getPDO()->prepare($statement);
 
-        if($class === null) {
-            $q->setFetchMode(PDO::FETCH_OBJ);
-        } else {
-            $q->setFetchMode(PDO::FETCH_CLASS, $class);
-        }
-
         for ($i = 0; $i < sizeof($options); $i++) { // Bind loop rather than just execute because of INT params interpreted as STR
             if(is_int($options[$i])) {
                 $q->bindParam($i+1, $options[$i], PDO::PARAM_INT);
             } else {
                 $q->bindParam($i+1, $options[$i], PDO::PARAM_STR);
             }
+        }
+
+        if(strpos($statement, 'UPDATE') === 0 || strpos($statement, 'DELETE') === 0 || strpos($statement, 'INSERT') === 0) {
+            $q->execute();
+            return;
+        }
+
+        if($class === null) {
+            $q->setFetchMode(PDO::FETCH_OBJ);
+        } else {
+            $q->setFetchMode(PDO::FETCH_CLASS, $class);
         }
 
         $q->execute();

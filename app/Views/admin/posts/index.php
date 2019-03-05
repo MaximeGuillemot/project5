@@ -1,5 +1,7 @@
 <h2>Administrer les posts</h2>
 
+<p><a href="./admin/">Retour à l'index d'admin</a></p>
+
 <table style="border-collapse;">
     <tr>
         <th style="border: 1px solid black;">ID</th>

@@ -48,10 +48,30 @@ class PostsModel extends Model {
         return $posts;
     }
 
+    public function updatePost($id, $fields) {
+        $dbFields = [];
+        $dbValues = [];
+
+        foreach ($fields as $k => $v) {
+            $dbFields[] = "$k = ?";
+        }
+
+        $dbFields = implode(', ', $dbFields);
+
+        $dbValues = array_values($fields);
+        $dbValues[] = $id;
+
+        $this->db->query('UPDATE posts SET ' . $dbFields . ' WHERE id = ?', null, $dbValues); // $dbFields safe because fixed keys from controller and ? values
+    }
+
     public function countPostsByType($type) {
         return $this->db->count('SELECT posts.type
                                 FROM posts
                                 LEFT JOIN post_types ON posts.type = post_types.type_name
                                 WHERE post_types.type_name = ?', [$type]);
+    }
+
+    public function getPostTypes() {
+        return $this->db->query('SELECT type_name FROM post_types');
     }
 }

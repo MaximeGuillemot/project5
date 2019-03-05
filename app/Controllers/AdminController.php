@@ -59,7 +59,17 @@ class AdminController extends AppController {
         $this->render('admin/posts/index', compact('news', 'chronicles', 'nbNews', 'nbChronicles'));
     }
 
-    public function editPost($postTitle) {
+    public function editPost($postTitle) {        
+        if(!empty($_POST)) {
+            $this->PostsModel->updatePost($this->PostsModel->getPostByTitle($postTitle)->id, [
+                'title' => $_POST['title'],
+                'type' => $_POST['type'],
+                'content' => $_POST['content'],
+                'author' => $_POST['author'],
+                'date' => $_POST['date']
+            ]);
+        }
+
         $post = $this->PostsModel->getPostByTitle($postTitle);
 
         if(!$post) {
@@ -68,8 +78,10 @@ class AdminController extends AppController {
             return;
         }
 
+        $postTypes = $this->PostsModel->getPostTypes();
+
         $this->setTitle($post->title);
-        $this->render('admin/posts/edit', compact('post'));
+        $this->render('admin/posts/edit', compact('post', 'postTypes'));
     }
 }
 
