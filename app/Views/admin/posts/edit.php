@@ -10,8 +10,7 @@
     <label>Type d'article : 
         <select name="type">
             <?php foreach ($postTypes as $postType): ?>
-                <option value=<?= $postType->type_name; ?> <?= $postType->type_name == $post->type ? 'selected' : ''?>><?= $postType->type_name; ?></option>
-
+                <option value=<?= $postType->type_name; ?> <?= $postType->type_name == $post->type ? 'selected' : ''?>><?= ucfirst($postType->type_name); ?></option>
             <?php endforeach;?>
         </select>
     </label><br>
@@ -24,9 +23,9 @@
         <input type="text" value="<?= $post->author; ?>" name="author">
     </label><br>
 
-    <label>Date : 
+    <label>Date : <!-- Input types such as "date", "time" or "datetime-local" not well supported, needs JS implementation -->
         <input type="datetime-local" value="<?= str_replace(' ', 'T', $post->date); ?>" name="date">
     </label><br>
 
-    <input type="submit" value="Valider">
+    <input type="submit" value="Modifier">
 </form>

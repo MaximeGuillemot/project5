@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Lib\URLTreatment;
+
 class AdminController extends AppController {
 
     public function __construct() {
@@ -37,6 +39,9 @@ class AdminController extends AppController {
         if(isset($urlInfo[2])) {
             if($urlInfo[2] == (int) $urlInfo[2] && (int) $urlInfo[2] !== 0) {
                 $page = (int) $urlInfo[2] - 1;
+            } elseif ($urlInfo[2] === 'add') {
+                $this->addPost();
+                return;
             } else {
                 $postTitle = $urlInfo[2];
                 $this->editPost($postTitle);
@@ -82,6 +87,25 @@ class AdminController extends AppController {
 
         $this->setTitle($post->title);
         $this->render('admin/posts/edit', compact('post', 'postTypes'));
+    }
+
+    public function addPost() {
+        if(!empty($_POST)) {
+            $this->PostsModel->createPost([
+                'title' => $_POST['title'],
+                'url_title' => URLTreatment::slugify($_POST['title']),
+                'type' => $_POST['type'],
+                'content' => $_POST['content'],
+                'author' => $_POST['author'],
+                'date' => $_POST['date']
+            ]);
+
+            echo 'post added';
+        }
+
+        $postTypes = $this->PostsModel->getPostTypes();
+
+        $this->render('admin/posts/add', compact('postTypes'));
     }
 }
 

@@ -1,6 +1,7 @@
 <h2>Administrer les posts</h2>
 
 <p><a href="./admin/">Retour à l'index d'admin</a></p>
+<p><a href="./admin/posts/add">Ajouter un post</a></p>
 
 <table style="border-collapse;">
     <tr>

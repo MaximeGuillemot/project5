@@ -54,14 +54,30 @@ class PostsModel extends Model {
 
         foreach ($fields as $k => $v) {
             $dbFields[] = "$k = ?";
+            $dbValues[] = $v;
         }
 
         $dbFields = implode(', ', $dbFields);
-
-        $dbValues = array_values($fields);
         $dbValues[] = $id;
 
         $this->db->query('UPDATE posts SET ' . $dbFields . ' WHERE id = ?', null, $dbValues); // $dbFields safe because fixed keys from controller and ? values
+    }
+
+    public function createPost($fields) {
+        $dbFields = [];
+        $nbValues = [];
+        $dbValues = [];
+
+        foreach ($fields as $k => $v) {
+            $dbFields[] = $k;
+            $dbValues[] = $v;
+            $nbValues[] = '?';
+        }
+
+        $dbFields = implode(', ', $dbFields);
+        $nbValues = implode(', ', $nbValues);
+
+        $this->db->query('INSERT INTO posts (' . $dbFields . ') VALUES (' . $nbValues . ')', null, $dbValues); // $dbFields safe because fixed keys from controller and ? values
     }
 
     public function countPostsByType($type) {
