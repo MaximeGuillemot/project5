@@ -13,11 +13,13 @@ class AdminController extends AppController {
     }
 
     public function adminIndex($action) {
+        $this->urlInfo = $action;
+
         if(isset($action[1])) {
             switch($action[1]) {
                 case 'posts':
                     $this->setTitle('Admin | Posts');
-                    $this->posts($action);
+                    $this->posts();
                     break;
                 /*case 'users':
                     $this->users();
@@ -33,17 +35,17 @@ class AdminController extends AppController {
         }
     }
 
-    public function posts($urlInfo) {
+    public function posts() {
         $page = 0;
 
-        if(isset($urlInfo[2])) {
-            if($urlInfo[2] == (int) $urlInfo[2] && (int) $urlInfo[2] !== 0) {
-                $page = (int) $urlInfo[2] - 1;
-            } elseif ($urlInfo[2] === 'add') {
+        if(isset($this->urlInfo[2])) {
+            if($this->urlInfo[2] == (int) $this->urlInfo[2] && (int) $this->urlInfo[2] !== 0) {
+                $page = (int) $this->urlInfo[2] - 1;
+            } elseif ($this->urlInfo[2] === 'add') {
                 $this->addPost();
                 return;
             } else {
-                $postTitle = $urlInfo[2];
+                $postTitle = $this->urlInfo[2];
                 $this->editPost($postTitle);
                 return;
             }
@@ -64,7 +66,7 @@ class AdminController extends AppController {
         $this->render('admin/posts/index', compact('news', 'chronicles', 'nbNews', 'nbChronicles'));
     }
 
-    public function editPost($postTitle) {        
+    public function editPost($postTitle) {
         if(!empty($_POST)) {
             $this->PostsModel->updatePost($this->PostsModel->getPostByTitle($postTitle)->id, [
                 'title' => $_POST['title'],
@@ -90,22 +92,26 @@ class AdminController extends AppController {
     }
 
     public function addPost() {
+        $postTypes = $this->PostsModel->getPostTypes();
+
+        $urlTitle = null;
+        $type = null;
+
         if(!empty($_POST)) {
+            $urlTitle = URLTreatment::slugify($_POST['title']);
             $this->PostsModel->createPost([
                 'title' => $_POST['title'],
-                'url_title' => URLTreatment::slugify($_POST['title']),
+                'url_title' => $urlTitle,
                 'type' => $_POST['type'],
                 'content' => $_POST['content'],
                 'author' => $_POST['author'],
                 'date' => $_POST['date']
             ]);
 
-            echo 'post added';
+            $type = $_POST['type'];
         }
 
-        $postTypes = $this->PostsModel->getPostTypes();
-
-        $this->render('admin/posts/add', compact('postTypes'));
+        $this->render('admin/posts/add', compact('postTypes', 'type', 'urlTitle'));
     }
 }
 

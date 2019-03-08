@@ -1,5 +1,9 @@
 <h2>Ajouter un post</h2>
 
+<?php if($urlTitle !== null) { ?>
+    <p>L'article a bien été ajouté. <a href="./<?= $type . '/' . $urlTitle; ?>">Voir l'article.</a></p>
+<?php } ?>
+
 <p><a href="./admin/posts/">Retour à la liste des posts</a></p>
 
 <form method="post">

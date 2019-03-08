@@ -14,6 +14,7 @@
         <td style="border: 1px solid black;"><?= $post->id; ?></td>
         <td style="border: 1px solid black;"><?= $post->title; ?></td>
         <td style="border: 1px solid black;"><a href="./admin/posts/<?= $post->url_title; ?>">Editer</a></td>
+        <td style="border: 1px solid black;"><a href="./admin/posts/<?= $post->url_title; ?>">Delete</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
