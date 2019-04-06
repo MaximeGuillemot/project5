@@ -27,9 +27,14 @@
 
 <p>
     <?php
+        if(isset($_GET['pchronicles'])) {
+            $pchronicle = $_GET['pchronicles'];
+        } else {
+            $pchronicle = 1;
+        }
         for($i = 1; $i <= $nbNews / 10 + 1; $i++) {
     ?>
-            <a href=<?= $pageUrl . $i; ?>><?= $i; ?></a>
+            <a href=<?= $pageUrl . '?pnews=' . $i . '&pchronicles=' . $pchronicle; ?>><?= $i; ?></a>
     <?php
         }
     ?>
@@ -59,9 +64,14 @@
 
 <p>
     <?php
+        if(isset($_GET['pnews'])) {
+            $pnews = $_GET['pnews'];
+        } else {
+            $pnews = 1;
+        }
         for($i = 1; $i <= $nbChronicles / 10 + 1; $i++) {
     ?>
-            <a href=<?= $pageUrl . $i; ?>><?= $i; ?></a>
+            <a href=<?= $pageUrl . '?pnews=' . $pnews . '&pchronicles=' . $i; ?>><?= $i; ?></a>
     <?php
         }
     ?>

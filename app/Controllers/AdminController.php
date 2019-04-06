@@ -37,10 +37,13 @@ class AdminController extends AppController {
 
     public function posts() {
         $page = 0;
-
-        if(isset($this->urlInfo[2])) {
-            if($this->urlInfo[2] == (int) $this->urlInfo[2] && (int) $this->urlInfo[2] !== 0) {
-                $page = (int) $this->urlInfo[2] - 1;
+        $pnews = 0;
+        $pchronicles = 0;
+        
+        if(isset($this->urlInfo[2]) || isset($_GET['pnews'])) {
+            if(isset($_GET['pnews'])) {
+                if($_GET['pnews'] > 0) $pnews = $_GET['pnews'] - 1;
+                if($_GET['pchronicles'] > 0) $pchronicles = $_GET['pchronicles'] - 1;
             } elseif ($this->urlInfo[2] === 'add') {
                 $this->addPost();
                 return;
@@ -55,7 +58,11 @@ class AdminController extends AppController {
             }
         }
 
-        for ($i = $page; $i >= 0; $i--) { 
+
+        $news = $this->PostsModel->getPostsByType('news', $pnews * 10, 10);
+        $chronicles = $this->PostsModel->getPostsByType('chronicles', $pchronicles * 10, 10);
+
+        /*for ($i = $page; $i >= 0; $i--) { 
             if($this->PostsModel->getPostsByType('news', $i * 10, 10)) {
                 $news = $this->PostsModel->getPostsByType('news', $i * 10, 10);
                 break;
@@ -67,7 +74,7 @@ class AdminController extends AppController {
                 $chronicles = $this->PostsModel->getPostsByType('chronicles', $i * 10, 10);
                 break;
             }
-        }
+        }*/
 
         if(!$news || !$chronicles) {
             $controller = new AppController();
