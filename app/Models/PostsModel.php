@@ -28,6 +28,10 @@ class PostsModel extends Model {
                                 'App\Entities\PostsEntity');
     }
 
+    public function getUrlTitles() {
+        return $this->db->query('SELECT posts.url_title FROM posts', null);
+    }
+
     public function getPostsByType($type, $lowLimit = 0, $upLimit = 5) {
         $posts = $this->db->query('SELECT posts.id, posts.title, posts.url_title, posts.content, posts.author, posts.type, posts.date
                                       FROM posts 

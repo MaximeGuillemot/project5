@@ -103,12 +103,26 @@ class AdminController extends AppController {
 
     public function addPost() {
         $postTypes = $this->PostsModel->getPostTypes();
+        $urlTitles = $this->PostsModel->getUrlTitles();
 
         $urlTitle = null;
         $type = null;
 
         if(!empty($_POST)) {
             $urlTitle = URLTreatment::slugify($_POST['title']);
+            $y = 1;
+
+            for ($i = 0; $i < sizeof($urlTitles); $i++) { 
+                if($urlTitle === $urlTitles[$i]->url_title) {
+                    if($y > 1) {
+                        $urlTitle = substr($urlTitle, 0, -2);
+                    }
+                    $urlTitle = $urlTitle . '-' . $y;
+                    $i = 0;
+                    $y++;
+                }
+            }
+
             $this->PostsModel->createPost([
                 'title' => $_POST['title'],
                 'url_title' => $urlTitle,
@@ -133,4 +147,3 @@ class AdminController extends AppController {
         $this->render('admin/posts/delete', compact('title'));
     }
 }
-
