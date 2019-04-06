@@ -25,6 +25,16 @@
     <?php endforeach; ?>
 </table>
 
+<p>
+    <?php
+        for($i = 1; $i <= $nbNews / 10 + 1; $i++) {
+    ?>
+            <a href=<?= $pageUrl . $i; ?>><?= $i; ?></a>
+    <?php
+        }
+    ?>
+</p>
+
 <table style="border-collapse;">
     <tr>
         <th style="border: 1px solid black;">ID</th>
@@ -47,3 +57,12 @@
     <?php endforeach; ?>
 </table>
 
+<p>
+    <?php
+        for($i = 1; $i <= $nbChronicles / 10 + 1; $i++) {
+    ?>
+            <a href=<?= $pageUrl . $i; ?>><?= $i; ?></a>
+    <?php
+        }
+    ?>
+</p>

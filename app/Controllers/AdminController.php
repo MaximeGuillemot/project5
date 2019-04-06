@@ -53,12 +53,21 @@ class AdminController extends AppController {
                 $this->deletePost($postTitle);
                 return;
             }
-
-            return;
         }
 
-        $news = $this->PostsModel->getPostsByType('news', $page * 10, 10);
-        $chronicles = $this->PostsModel->getPostsByType('chronicles', $page * 10, 10);
+        for ($i = $page; $i >= 0; $i--) { 
+            if($this->PostsModel->getPostsByType('news', $i * 10, 10)) {
+                $news = $this->PostsModel->getPostsByType('news', $i * 10, 10);
+                break;
+            }
+        }
+
+        for ($i = $page; $i >= 0; $i--) { 
+            if($this->PostsModel->getPostsByType('chronicles', $i * 10, 10)) {
+                $chronicles = $this->PostsModel->getPostsByType('chronicles', $i * 10, 10);
+                break;
+            }
+        }
 
         if(!$news || !$chronicles) {
             $controller = new AppController();
@@ -69,7 +78,9 @@ class AdminController extends AppController {
         $nbNews = $this->PostsModel->countPostsByType('news');
         $nbChronicles = $this->PostsModel->countPostsByType('chronicles');
 
-        $this->render('admin/posts/index', compact('news', 'chronicles', 'nbNews', 'nbChronicles'));
+        $pageUrl = './admin/posts/';
+
+        $this->render('admin/posts/index', compact('news', 'chronicles', 'pageUrl', 'nbNews', 'nbChronicles'));
     }
 
     public function editPost($postTitle) {
