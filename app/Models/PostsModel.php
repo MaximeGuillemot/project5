@@ -80,6 +80,10 @@ class PostsModel extends Model {
         $this->db->query('INSERT INTO posts (' . $dbFields . ') VALUES (' . $nbValues . ')', null, $dbValues); // $dbFields safe because fixed keys from controller and ? values
     }
 
+    public function removePost($id) {
+        $this->db->query('DELETE FROM posts WHERE id = ?', null, [$id]);
+    }
+
     public function countPostsByType($type) {
         return $this->db->count('SELECT posts.type
                                 FROM posts

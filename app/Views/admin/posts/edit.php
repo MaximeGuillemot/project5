@@ -2,6 +2,10 @@
 
 <p><a href="./admin/posts/">Retour à la liste des posts</a></p>
 
+<?php if($mod) { ?>
+    <p>L'article a bien été modifié.</p>
+<?php } ?>
+
 <form method="post">
     <label>Titre : 
         <input type="text" value="<?= $post->title; ?>" name="title">

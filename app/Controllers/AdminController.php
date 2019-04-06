@@ -44,11 +44,17 @@ class AdminController extends AppController {
             } elseif ($this->urlInfo[2] === 'add') {
                 $this->addPost();
                 return;
-            } else {
-                $postTitle = $this->urlInfo[2];
+            } elseif($this->urlInfo[2] === 'edit' && isset($this->urlInfo[3])) {
+                $postTitle = $this->urlInfo[3];
                 $this->editPost($postTitle);
                 return;
+            } elseif($this->urlInfo[2] === 'delete') {
+                $postTitle = $this->urlInfo[2];
+                $this->deletePost($postTitle);
+                return;
             }
+
+            return;
         }
 
         $news = $this->PostsModel->getPostsByType('news', $page * 10, 10);
@@ -67,6 +73,8 @@ class AdminController extends AppController {
     }
 
     public function editPost($postTitle) {
+        $mod = false;
+
         if(!empty($_POST)) {
             $this->PostsModel->updatePost($this->PostsModel->getPostByTitle($postTitle)->id, [
                 'title' => $_POST['title'],
@@ -75,6 +83,8 @@ class AdminController extends AppController {
                 'author' => $_POST['author'],
                 'date' => $_POST['date']
             ]);
+
+            $mod = true;
         }
 
         $post = $this->PostsModel->getPostByTitle($postTitle);
@@ -88,7 +98,7 @@ class AdminController extends AppController {
         $postTypes = $this->PostsModel->getPostTypes();
 
         $this->setTitle($post->title);
-        $this->render('admin/posts/edit', compact('post', 'postTypes'));
+        $this->render('admin/posts/edit', compact('post', 'postTypes', 'mod'));
     }
 
     public function addPost() {
@@ -112,6 +122,15 @@ class AdminController extends AppController {
         }
 
         $this->render('admin/posts/add', compact('postTypes', 'type', 'urlTitle'));
+    }
+
+    public function deletePost() {
+        if(!empty($_POST)) {
+            $title = $_POST['post_title'];
+            $this->PostsModel->removePost($_POST['post_id']);
+        }
+
+        $this->render('admin/posts/delete', compact('title'));
     }
 }
 

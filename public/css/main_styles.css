@@ -157,7 +157,7 @@ nav ul {
 
     position: fixed;
 
-    padding-top: 140px;
+    padding-top: 60px;
 
     background: linear-gradient(90deg, rgb(15, 15, 15) 0%,rgb(27, 27, 27) 40%,rgb(15, 15, 15) 100%);
     border-right: 2px solid #FFF;
@@ -196,11 +196,11 @@ nav ul {
     height: 100%;
 
     position: relative;
-    left: -50px;
+    left: -80px;
 
     opacity: 0;
 
-    transition: opacity .2s ease-in-out, left .2s ease-in-out;
+    transition: opacity .2s ease-in-out, left .1s ease-in-out;
 }
 
 #secondary-nav:hover a {
