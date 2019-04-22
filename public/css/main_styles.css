@@ -41,9 +41,9 @@ nav ul {
     width: 100%;
     height: 100px;
 
-    /*position: fixed;
+    position: fixed;
     top: 0;
-    margin: 0;*/
+    margin: 0;
     
     background: linear-gradient(135deg, rgb(226, 23, 23) 0%,rgb(243, 38, 38) 18%,rgb(200, 11, 11) 100%);
     border-bottom: 2px solid #FFF;
@@ -156,6 +156,7 @@ nav ul {
     height: 100vh;
 
     position: fixed;
+    top: 100px;
 
     padding-top: 60px;
 
@@ -263,9 +264,40 @@ nav ul {
 }
 
 
+/*-----------------------------
+    Main content properties
+------------------------------*/
 
+#content-wrapper {
+    display: flex;  
+    margin: 140px 40px 0 120px;
+}
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    width: 100%;
+
+    
+}
+
+aside {
+    width: 380px;
+
+    margin-left: 40px;
+}
+
+aside > div {
+    width: 100%;
+    height: 280px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    background-color: #FFF;
+}
 
 
 

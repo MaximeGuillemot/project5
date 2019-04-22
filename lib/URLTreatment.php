@@ -49,13 +49,13 @@ class URLTreatment {
             return null; // Then return 404 error and not 403 because the user shouldn't know if the requested file actually exists or not
         }
 
-        // If the URL is empty or aiming at index, invoke default
+        // If the URL is empty or aiming at index, invoke home
         // Otherwise, safely decode the URL into an array that defines the path
         return $action = (
             ($url == '') ||
             ($url == 'index.php') ||
             ($url == 'index.html')
-        ) ? array('default') : explode('/',html_entity_decode($url));
+        ) ? array('home') : explode('/',html_entity_decode($url));
     }
 
     public static function slugify($string, $delimiter = '-') {

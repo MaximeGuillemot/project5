@@ -27,6 +27,7 @@
 		<link rel="icon" sizes="16x16" href="images/favicon.ico" />
 
         <link href="http://127.0.0.1/project5/public/css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="http://127.0.0.1/project5/public/css/home.css" type="text/css" rel="stylesheet" media="all" />
         <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
 	</head>
 
@@ -58,10 +59,16 @@
                 <li><a href="">Facebook</a></li>
             </ul>
         </nav>
-        
-        <main style="margin-left: 150px;">
-            <?= $content; ?>
-        </main>
+
+        <div id="content-wrapper">
+            <main>
+                <?= $content; ?>
+            </main>
+
+            <aside>
+                <?= $asideContent; ?>
+            </aside>
+        </div>
 		
 		<footer id="site-footer">
             <p><small>©2019 Tous droits réservés @MMOShards.</small></p>

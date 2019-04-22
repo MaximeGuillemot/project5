@@ -1,1 +1,9 @@
-<h2 style="margin-top: 200px; margin-left: 200px;">Test home</h2>
+<div id="home-slider-container">
+
+</div>
+
+<div id="home-videos-container">
+
+</div>
+
+<div></div>
