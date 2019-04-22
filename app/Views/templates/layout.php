@@ -38,7 +38,7 @@
             <nav>
                 <ul>
                     <li><a href="./news/">Actualités</a></li>
-                    <li><a href="./admin/">La Chaîne - Admin temp</a></li>
+                    <li><a href="./admin/">La Chaîne</a></li>
                     <li><a href="./chronicles/">Chroniques</a></li>
                     <li><a href="">Guides</a></li>
                     <li><a href="">La Guilde</a></li>
