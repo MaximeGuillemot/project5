@@ -4,7 +4,7 @@ namespace Lib;
 
 class Post {
 
-    public function getExcerpt($content, $carLimit = 100) {
+    public function getExcerpt($content, $carLimit = 300) {
 
         if(strlen($content) > $carLimit) {
             return substr($content, 0, strpos($content, ' ', $carLimit)) . '...';

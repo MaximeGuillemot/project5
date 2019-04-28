@@ -27,13 +27,12 @@
 
 .home-video-block p {
     max-width: 240px;
-
-    margin: 12px 0;
+    margin: 0;
+    margin-top: 12px;
 
     font-weight: bold;
     font-size: 1.1rem;
     text-align: center;
-    color: #111;
 }
 
 
@@ -80,10 +79,19 @@
     height: 25px;
     padding: 5px;
     padding-left: 7px;
+    padding-right: 0;
     width: 115px;
     background-color: rgb(241, 28, 28);
     -webkit-clip-path: polygon(75% 0, 85% 50%, 75% 100%, 0 100%, 0 0);
-clip-path: polygon(75% 0, 85% 50%, 75% 100%, 0 100%, 0 0);
+    clip-path: polygon(75% 0, 85% 50%, 75% 100%, 0 100%, 0 0);
+}
+
+.home-video-watch {
+    height: 35px;
+    width: 100%;
+    padding-top: 10px;
+    background: linear-gradient(90deg, rgb(22, 22, 22) 0%,rgb(41, 41, 41) 40%,rgb(22, 22, 22) 100%);
+    color: #FFF;
 }
 
 

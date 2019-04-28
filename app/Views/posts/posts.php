@@ -1,16 +1,39 @@
-<?php
-    foreach($posts as $post): 
-?>
-        <h3><a href="<?= $post->getUrl(); ?>"><?= $post->title; ?></a></h3>
+<div class="news-block-containers">
+    <div class="most-recent-news">
+        <h2><span class="news-section-title"><?= $postType; ?></span><a href="<?= $posts[0]->getUrl(); ?>"><?= $posts[0]->title; ?></a></h3>
+    </div>
+</div>
 
-        <p><em><?= $postType; ?></em></p>
-        
-        <p><?= $post->getExcerpt($post->content); ?></p>
-
-        <p><a href="<?= $post->getUrl(); ?>">Lire la suite</a></p>
 <?php 
-    endforeach; 
+    $nbNews = 1;
+
+    for ($i = 0; $i < 2; $i++) { 
 ?>
+        <div class="news-block-containers">
+<?php
+            for($y = 0; $y < 2; $y++) {
+?>
+                <div class="news-container">
+                    <h2><span class="news-section-title"><?= $postType; ?></span><a href="<?= $posts[$nbNews]->getUrl(); ?>"><?= $posts[$nbNews]->title; ?></a></h3>
+                    <p class="news-excerpt">
+                        <img src="./public/images/chronique2.jpg" alt=""> evsfzf
+                        <?= $posts[$nbNews]->getExcerpt($posts[$nbNews]->content); ?>
+                    </p>
+
+                    <p class="news-meta-info">
+                        <span class="news-date"><?= date('d/m/Y', strtotime($posts[$nbNews]->date)); ?></span>
+                        <a href="<?= $posts[$nbNews]->getUrl(); ?>">Lire la suite</a></p>
+                    <?php $nbNews++; ?>
+                </div>
+<?php
+            }
+?>
+        </div>
+<?php
+}
+?>
+
+
 <p>
     <?php
         for($i = 1; $i <= $nbPosts / 5 + 1; $i++) {

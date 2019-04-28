@@ -334,8 +334,10 @@ h2 {
     width: 100%;
 }
 
-
-
+h2 a, h2 a:visited {
+    color: #FFF;
+    text-decoration: none;
+}
 
 
 

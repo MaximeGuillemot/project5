@@ -28,6 +28,7 @@
 
         <link href="http://127.0.0.1/project5/public/css/main_styles.css" type="text/css" rel="stylesheet" media="all" />
         <link href="http://127.0.0.1/project5/public/css/home.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="http://127.0.0.1/project5/public/css/posts.css" type="text/css" rel="stylesheet" media="all" />
         <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
 	</head>
 
