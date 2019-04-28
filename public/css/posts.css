@@ -30,6 +30,10 @@
     position: relative;
 }
 
+.news-container:nth-child(1) {
+    margin-right: 20px;
+}
+
 .news-excerpt {
     padding: 5px 20px;
     text-align: justify;
@@ -72,15 +76,31 @@
     display: inline-block;
     position: absolute;
     right: 20px;
-    color: #444;
+    color: #333;
     font-weight: bold;
     font-size: 1.05rem;
 }
 
 .news-meta-info a:visited {
-    color: #444;
+    color: #333;
+}
+
+.news-meta-info a:hover {
+    text-decoration: underline;
 }
 
 .news-date {
     font-size: 1rem;
+}
+
+
+
+@media all and (max-width: 1340px) {
+    .news-container {
+        width: 100%;
+    }
+
+    .news-container:nth-child(1) {
+        margin-right: 0;
+    }
 }
